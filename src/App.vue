@@ -7,25 +7,23 @@
     		</h1>
     	</div>
     
-      <router-view></router-view>
+      <router-view keep-alive transition="fade" ></router-view>
       <float></float>
     </div>
-
  </template>
 
 <script>
-import './css/root.scss'
 import float from './components/general/float'
 
 export default {
 	ready() {
+        //默认list页
 		this.$router.go({path: '/list'})
 	},
     components: {
         float
     }
 }
-
 </script>
 
 <style lang='scss'>

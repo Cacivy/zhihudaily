@@ -4,13 +4,23 @@
 
 + vue + vue-route + vuex + vue-resource
 + lodash + moment.js + swiper
-+ sass + normalize.css + flex
++ sass + normalize.css + animate.css
 
 ### To Do
 
-+ 已完成 列表页、文章页面以及基本布局、返回首页、加载动画、轮播图控
-+ 待开发 专栏、查看评论、顶部/侧边搜索
-+ 优化 返回首页定位(根据id)、 过往消息列表缓存
+- [x] 列表页
+- [x] 文章页面
+- [x] 返回首页
+- [x] 异步加载组件
+- [x] 加载动画
+- [X] 过渡
+- [x] 图片懒加载
+- [x] 轮播图控件
+- [x] 返回首页定位
+- [x] 过往消息缓存
+- [ ] 专栏
+- [ ] 查看赞/评论
+- [ ] 顶部/侧边搜索
 
 ### Dev
 
@@ -21,9 +31,7 @@ npm install
 
 开启代理
 ```nodejs
-cd zhihudaily/src/api
-
-node server.js
+npm run server
 ```
 
 webpack-server

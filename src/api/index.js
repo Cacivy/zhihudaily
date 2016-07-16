@@ -1,4 +1,4 @@
-import { NewsResource,NewsIdResource,NewsDateResource,TopicsResource,TopicsIdResource } from './resource'
+import { NewsResource,NewsIdResource,NewsDateResource, NewsInfoResource, TopicsResource,TopicsIdResource } from './resource'
 
 export default {
 	getNews() {
@@ -9,6 +9,9 @@ export default {
 	},
 	getNewsByDate(date) {
 		return NewsDateResource.get({date: date})
+	},
+	getNewsInfoById(id) {
+		return NewsInfoResource.get({id: id})
 	},
 	getTopics() {
 		return TopicsResource.get()

@@ -3,6 +3,8 @@
 var http= require('http')
 var url = require('url');
 var qs = require('querystring');
+var port = 3000;
+console.log('Listening at http://localhost:' + port + '\n')
 
 var type=['GET','POST'];
 http.createServer(function(req, response){
@@ -12,35 +14,36 @@ http.createServer(function(req, response){
  var arg = url.parse(req.url).query;
  var str = qs.parse(arg);
  
-  var opt = {
-    host: str.host,
-    port:'',
-    method:pathname.substring(1),
-    path: str.url,
-    headers:{
-      //请求头
-    }
+ var opt = {
+  host: str.host,
+  port:'',
+  method:pathname.substring(1),
+  path: str.url,
+  headers:{
+
   }
+}
 
 var body=''
 var req = http.request(opt, function(res) {
-  console.log("Got response: " + res.statusCode);
+  res.setEncoding('utf8'); 
+  
   res.on('data',function(d){
-  body += d
- }).on('end', function(){
-  console.log(res.headers)
-  console.log(body)
+    body += d
+  }).on('end', function(){
+    console.log(opt)
+    console.log(res.headers)
+  // console.log(body)
   console.log('------------------------------')
 
   body.replace(/http\w{0,1}:\/\/pic/g, "https://images.weserv.nl/?url=pic")
   response.write(body)
   response.end()
- });
+});
 
 }).on('error', function(e) {
   console.log("Got error: " + e.message);
 })
 req.end();
 
-
-}).listen(3000);
+}).listen(port);

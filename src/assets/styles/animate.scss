@@ -1,0 +1,18 @@
+.opacity {
+	-webkit-animation-name: opacity; /*动画名称*/
+	-webkit-animation-duration: 2s; /*动画持续时间*/
+	-webkit-animation-iteration-count: 1; /*动画次数*/
+	-webkit-animation-timing-function: normal;
+}
+
+@-webkit-keyframes opacity {
+  from { opacity: 0.1 } 
+  to { opacity: 1 }
+}
+
+.fade-transition {
+  transition: opacity .3s ease;
+}
+.fade-enter, .fade-leave {
+  opacity: 0;
+}

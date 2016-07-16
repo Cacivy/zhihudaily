@@ -1,38 +1,60 @@
 <template>
-  <div class="detail">
-     <img class="postimage" :src="detail.image | zhihuimg">
-     {{{ detail.body  | zhihuimg | zhihulink }}}
-  </div>
-  <loading v-if="loading" :mask="true"></loading>
+  <div>
+    <div class="post">
+     <img class="postimage" :src="post.image | zhihuimg">
+     {{{ post.body  | zhihuimg | zhihulink }}}
+     <loading v-if="!post.body" :mask="false"></loading>
+   </div>
+ </div>
 </template>
 
 <script>
-import api from '../api/index'
-import '../css/zhihu.css'
-import loading from './general/loading'
-export default {
-  components:{
-    loading
-  },
-  data() {
-    return {
-      detail: {},
-      loading: false
+  import api from '../api/index'
+  import { getPost } from '../vuex/action'
+  import store from '../vuex/store'
+  import loading from './general/loading'
+  export default {
+    components:{
+      loading
+    },
+    data() {
+      return {
+
+      }
+    },
+    computed: {
+      post() {
+        let id= this.$route.params.id
+        let post= this.posts.find(p=>p.id == id) || {}
+        return post
+      }
+    },
+    store: store,
+    vuex: {
+      getters: {
+        posts: state => state.posts
+      },
+      actions: {
+        getPost
+      }
+    },
+    route: {
+      data(transition) {
+        scroll(0, 0)
+        let id= this.$route.params.id
+        
+        if(!this.post.body){
+          this.getPost(id)
+        }
+      },
+      // 這邊就是等待數據取得後才渲染組件關鍵，開啟 true 的話就會等到上面 data 處理完才會開始渲染
+      waitForData: false
     }
-  },
-  ready() {
-    let id= this.$route.params.id
-    this.loading=true
-    api.getNewsById(id).then(res => {
-      this.detail= JSON.parse(res.data)
-      this.loading= false
-    })
   }
-}
 </script>
 
 <style>
-  .detail {
+  .post {
     position: relative;
   }
 </style>

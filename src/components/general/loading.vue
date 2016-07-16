@@ -22,7 +22,7 @@
 		}
 	}
 </script>
-<style lang="scss">
+<style lang="scss" scope>
 	.floating {
 		position: fixed;
 		width: 100%;
@@ -73,9 +73,8 @@
 	  }
 	}
 
-
 	@-webkit-keyframes load {
-	  0%, 40%, 100% { -webkit-transform: scaleY(0.7) } 
-	  20% { -webkit-transform: scaleY(1.3) }
+	  0%, 40%, 100% { -webkit-transform: scaleY(0.7); } 
+	  20% { -webkit-transform: scaleY(1.3); }
 	}
 </style>

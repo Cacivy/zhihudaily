@@ -4,7 +4,7 @@
 	        <div class="arrow"></div>
 	        <div class="stick"></div>
 	    </div>
-	    <div v-if="$route.path!=='/list'" title="返回主页" class="gohome" v-link="{ path: '/list' }">
+	    <div v-if="$route.path!=='/list'" title="返回主页" class="gohome" onclick="javascript:history.back()">
 	    	<div class="arrow"></div>
 	    	<div class="stick"></div>
 	    </div>
@@ -24,15 +24,15 @@
 				var btn = document.getElementById(btnId);
 				var d = document.documentElement;
 				var b = document.body;
-				window.onscroll = btnDisplay;
+				window.addEventListener('scroll',btnDisplay)
 				btn.onclick = function (){
 					btn.style.display = "none";
-					window.onscroll = null;
+					//window.onscroll = null;
 					this.timer = setInterval(function(){
-						d.scrollTop -= Math.ceil((d.scrollTop+b.scrollTop)*0.1);
-						b.scrollTop -= Math.ceil((d.scrollTop+b.scrollTop)*0.1);
+						d.scrollTop -= Math.ceil((d.scrollTop+b.scrollTop)*0.2);
+						b.scrollTop -= Math.ceil((d.scrollTop+b.scrollTop)*0.2);
 						if((d.scrollTop + b.scrollTop) == 0)
-							clearInterval(btn.timer,window.onscroll = btnDisplay);
+							clearInterval(btn.timer);//window.onscroll = btnDisplay
 					},10);
 				};
 				function btnDisplay(){
@@ -43,7 +43,7 @@
 		}
 	}
 </script>
-<style lang='scss'>
+<style lang='scss' scope>
 	.float {
 		position: fixed;
 		right: 20em;

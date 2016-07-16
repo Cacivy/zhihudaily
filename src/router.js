@@ -1,13 +1,18 @@
 import NewsList from './components/NewsList'
-import NewDetail from './components/NewDetail'
+// import NewDetail from './components/NewDetail'
 
 export default function(router) {
 	router.map({
-	    '/list': {
-	        component: NewsList
-	    },
+		'/list': {
+			component: NewsList
+		},
+	    // '/new/:id': {
+	    //     component: NewDetail
+	    // }
 	    '/new/:id': {
-	        component: NewDetail
+	    	component:function (resolve) {
+	    		require(['./components/NewDetail'], resolve)
+	    	}
 	    }
 	})
 }

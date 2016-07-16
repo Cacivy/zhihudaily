@@ -1,5 +1,8 @@
-@import url(../../node_modules/normalize.css/normalize.css);
+@import url(../../../node_modules/normalize.css/normalize.css);
+@import url(zhihu.css);
 @import url(reset.css);
+@import url(animate.scss);
+
 
 $color-bg: #D3D3D3;
 $color-white: #FFF;
@@ -11,6 +14,7 @@ $color-light: #F9F9F9;
 body {
 	background: $color-bg;
 	transtion: all 1s;
+	font-family: "Lucida Grande","Microsoft YaHei",sans-serif
 }
 
 #app {
@@ -25,7 +29,6 @@ body {
 		height: 80px;
 		line-height: 80px;
 		padding: 0 10px;
-
 
 		h1 {
 			color: $color-blue;
