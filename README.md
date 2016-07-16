@@ -6,7 +6,7 @@
 + lodash + moment.js + swiper
 + sass + normalize.css + flex
 
-### 进度
+### To Do
 
 + 已完成 列表页、文章页面以及基本布局、返回首页、加载动画、轮播图控
 + 待开发 专栏、查看评论、顶部/侧边搜索
@@ -34,6 +34,11 @@ npm run dev
 [http://localhost:8080](http://localhost:8080)
 
 有时候图会挂掉，因为知乎做了防外链，走的代理，不太稳定
+
+### License
+
+> 感谢[yanunon](https://github.com/yanunon/NeteaseCloudMusic/wiki/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90API%E5%88%86%E6%9E%90)提供的api，以及[yatessss](https://github.com/yatessss/zhihudaily-vue)的图片代理解决方案
+
 
 ### show
 
