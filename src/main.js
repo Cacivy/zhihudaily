@@ -25,5 +25,5 @@ sync(store, router)
 //Config
 Router(router)
 //Start
-router.start(App, '#root')
+router.start(App, '#app')
 window.router = router

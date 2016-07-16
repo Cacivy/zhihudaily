@@ -28,18 +28,25 @@
 	margin-left: -360px;
 
 	.agree {
+		.icon {
+			display: block;
+			width: 0;
+			height: 0;
+			border: 6px solid transparent;
+			border-bottom-color: #698ebf;
+			margin: 0 auto;
+		}
 		.up {
 			display: block;
 			color: #698ebf;
-			height: 24px;
+			height: 45px;
 			line-height: 24px;
 			width: 38px;
 			border-radius: 3px;
 			border: 0;
 			cursor: pointer;
 			background: #eff6fa;
-			font-weight: 700;
-			font-weight: 500;
+			font-size: 12px;
 			text-align: center;
 			position: relative;
 			// padding-top: 18px;
@@ -49,6 +56,9 @@
 		 &:hover {
 		 	background: #698ebf;
 	 	    color: #fff;
+	 	    .icon {
+	 	    	border-bottom-color: #fff;
+	 	    }
 		 }
 		}
 		.sr-only {
