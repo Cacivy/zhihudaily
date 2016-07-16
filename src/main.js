@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Router from './router'
-import Filter from './filter'
+import filter from './filter'
 import store from './vuex/store'
 import { sync } from 'vuex-router-sync'
 import App from './App'
@@ -12,10 +12,11 @@ import './assets/styles/root.scss'
 Vue.use(VueRouter)
 
 //自定义过滤器
-Filter(Vue)
+filter(Vue)
 
 const router = new VueRouter({
   history: true,
+  hashbang: true,
   saveScrollPosition: true,
   suppressTransitionError: true,
   transitionOnLoad: true

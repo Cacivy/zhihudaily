@@ -5,6 +5,7 @@
      {{{ post.body  | zhihuimg | zhihulink }}}
      <loading v-if="!post.body" :mask="false"></loading>
    </div>
+   <left v-if="post.body" :popularity="post.popularity"></left>
  </div>
 </template>
 
@@ -13,9 +14,10 @@
   import { getPost } from '../vuex/action'
   import store from '../vuex/store'
   import loading from './general/loading'
+  import left from './general/left'
   export default {
     components:{
-      loading
+      loading, left
     },
     data() {
       return {

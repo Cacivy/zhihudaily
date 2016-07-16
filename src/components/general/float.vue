@@ -46,8 +46,9 @@
 <style lang='scss' scope>
 	.float {
 		position: fixed;
-		right: 20em;
-		bottom: 10%;
+		left: 50%;
+		top: 80%;
+		margin-left: 400px;
 		
 		$color-light: #F9F9F9;
 		$color-topicon: #AAA;

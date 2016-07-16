@@ -13,7 +13,7 @@
  </template>
 
 <script>
-import float from './components/general/float'
+import float from 'components/general/float'
 
 export default {
 	ready() {
