@@ -1,0 +1,101 @@
+@import url(../../node_modules/normalize.css/normalize.css);
+@import url(reset.css);
+
+$color-bg: #D3D3D3;
+$color-white: #FFF;
+$color-shadow: #5d656c;
+$color-blue: #008BED;
+$color-gray: #7f8c8d;
+$color-light: #F9F9F9;
+
+body {
+	background: $color-bg;
+	transtion: all 1s;
+}
+
+#app {
+	min-height: 100%;
+	width: 640px;
+	margin: 0 auto;
+	padding-bottom: 10px;
+	background-color: $color-white;
+	box-shadow: 0 0 2.5em $color-shadow;
+
+	.head {
+		height: 80px;
+		line-height: 80px;
+		padding: 0 10px;
+
+
+		h1 {
+			color: $color-blue;
+			font-size: 25px;
+
+			em {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				border: 5px solid $color-blue;
+				border-right: 5px solid transparent;
+				position: relative;
+				left: 15px;
+				transform: rotate(20deg)
+			}
+		}
+	}
+
+	.news {
+		h3 {
+			text-align: center;
+			font-size: 18px;
+			color: $color-gray;
+		}
+
+		.new {
+			margin: 20px;
+			padding: 10px;
+			border-radius: 5px;
+			box-shadow: 0 0 4px rgba(0,0,0,0.25);
+			cursor: pointer;
+			position: relative;
+
+			img {
+				border-radius: 5px;
+				max-height: 100px;
+			}
+
+			p {
+				padding-left: 20px;
+				display: inline-block;
+				vertical-align: top;
+				font-size: 16px;
+				width: 400px;
+			}
+
+			em {
+				position: absolute;
+				right: 10px;
+				bottom: 10px; 
+			}
+		}
+	}
+
+	.more {
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		margin: 20px;
+		background-color: $color-light;
+		border-radius: 5px;
+		cursor: pointer;
+		position: relative;
+	}
+
+	.detail {
+		.postimage {
+			width: 100%;
+		}
+	}
+}
+
