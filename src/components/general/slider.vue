@@ -1,13 +1,10 @@
-<template>
-	<div class="swiper-container">
-	    <div class="swiper-wrapper" >
-	        <div class="swiper-slide" v-for="item in list">
-	        	<img :src="item.image | zhihuimg">
-	        	<p v-link="{ path: item.url}"> {{item.title}} </p>
-	        </div>
-	    </div>
-	    <div class="swiper-pagination"></div>
-    </div>
+<template lang="jade">
+div.swiper-container
+	div.swiper-wrapper
+		div.swiper-slide(v-for="item in list")
+			img(:src="item.image | zhihuimg")
+			p(v-link="{ path: item.url}") {{item.title}}
+	div.swiper-pagination
 </template>
 
 <script>

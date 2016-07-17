@@ -1,13 +1,10 @@
-<template>
-	<div class="left">
-		<div class="agree">
-			<button class="up" aria-pressed="false" title="赞同">
-			<i class="icon vote-arrow"></i>
-			<span class="count">{{ popularity }}</span>
-			<span class="label sr-only">赞同</span>
-			</button>
-		</div>
-	</div>
+<template lang="jade">
+div.left
+	div.agree
+		button.up(itle="赞同")
+			i.icon
+			span.count {{ popularity }}
+			span.sr-only
 </template>
 
 <script>

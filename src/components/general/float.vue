@@ -1,21 +1,16 @@
-<template>
-	<div class="float">
-	    <div class="gotop" id="gotop" title="返回顶部">
-	        <div class="arrow"></div>
-	        <div class="stick"></div>
-	    </div>
-	    <div v-if="$route.path!=='/list'" title="返回主页" class="gohome" onclick="javascript:history.back()">
-	    	<div class="arrow"></div>
-	    	<div class="stick"></div>
-	    </div>
-	    <div v-else class="gotopic" title="主题日报">
-			<div class="container">
-				<hr>
-				<hr>
-				<hr>
-			</div>
-	    </div>
-	</div> 
+<template lang="jade">
+div.float
+	div.gotop#gotop(title="返回顶部")
+		div.arrow
+		div.stick
+	div.gohome(v-if="$route.path!=='/list'",title="返回主页",onclick="javascript:history.back()")
+		div.arrow
+		div.stick
+	div.gotopic(title="主题日报",v-else)
+		div.container
+			hr
+			hr
+			hr
 </template>
 <script>
 	export default {

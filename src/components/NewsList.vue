@@ -1,18 +1,15 @@
-<template>
-  <div>
-    <div class="news" v-for="(index,item) in news" >
-      <h3 v-if="index">{{item.date | moment}}</h3>
-      <!-- 顶部图片 -->
-      <slider v-if="!index" :list="imglist"></slider>
-      <!-- 列表子组件 -->
-      <listitem v-for="new in item.stories" track-by="id" :new="new"></listitem>
-    </div>
-    <!-- 加载 -->
-    <div class="more" @click="getLastNews" v-if="news.length">
-      <loading :mask="false" v-if="loading"></loading>
-      <span v-else>加载更多</span>
-    </div>
-  </div>
+<template lang="jade">
+  div
+    div.news(v-for="(index,item) in news")
+      h3(v-if="index") {{item.date | moment}}
+      //- 顶部图片
+      slider(v-if="!index",:list="imglist")
+      //- 列表子组件
+      listitem(v-for="new in item.stories",track-by="id",:new="new")
+    //- 加载
+    div.more(@click="getLastNews",v-if="news.length")
+      loading(:mask="false",v-if="loading")
+      span(v-else) 加载更多
  </template>
 
 <script>

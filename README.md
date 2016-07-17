@@ -4,7 +4,8 @@
 
 + vue + vue-route + vuex + vue-resource
 + lodash + moment.js + swiper
-+ sass + normalize.css + animate.css
++ jade + sass
++ normalize.css + animate.css
 
 ### To Do
 

@@ -1,12 +1,10 @@
-<template>
-  <div>
-    <div class="post">
-     <img class="postimage" :src="post.image | zhihuimg">
-     {{{ post.body  | zhihuimg | zhihulink }}}
-     <loading v-if="!post.body" :mask="false"></loading>
-   </div>
-   <left v-if="post.body" :popularity="post.popularity"></left>
- </div>
+<template lang="jade">
+div
+  div.post
+    img.postimage(:src="post.image | zhihuimg")
+    {{{ post.body  | zhihuimg | zhihulink }}}
+    loading(v-if="!post.body",:mask="false")
+  left(v-if="post.body",:popularity="post.popularity")
 </template>
 
 <script>
