@@ -32,20 +32,20 @@ export const getPost = ({dispatch, state}, id) => {
 	let post= state.posts.find(p=>p.id == id);
 	if(!post){
 		api.getNewsById(id).then(res => {
-			let post= JSON.parse(res.data)
+			post= JSON.parse(res.data)
 			//获取相关信息
-			api.getNewsInfoById(id).then(res2 => {
-			  if(res2.ok){
-			    let obj= JSON.parse(res2.data)
+			return api.getNewsInfoById(id)
+		}).then(res2 => {
+			if(res2.ok){
+				let obj= JSON.parse(res2.data)
 			    //属性赋值
 			    for (let item in obj) {
-			      if ({}.hasOwnProperty.call(obj, item)) {
-			        post[item] = obj[item]
-			      }
+			    	if ({}.hasOwnProperty.call(obj, item)) {
+			    		post[item] = obj[item]
+			    	}
 			    }
 			    dispatch('ADD_POSTS', post)
-			  }
-			})
+			}
 		})
 	}
 }
