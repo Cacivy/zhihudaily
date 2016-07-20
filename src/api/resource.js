@@ -16,7 +16,7 @@ var apiZhihu= {
     topics: '/api/4/themes',
     topicbyid: '/api/4/theme{/topicid}',
     sections: '/api/3/sections',
-    sectionbyid: '/api/3/section{/:sectionid}',
+    sectionbyid: '/api/3/section{/sectionid}',
 }
 
 export const NewsResource = Vue.resource(API_ROOT.concat( apiZhihu.news ))

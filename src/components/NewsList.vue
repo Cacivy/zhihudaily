@@ -6,10 +6,8 @@
       slider(v-if="!index",:list="imglist")
       //- 列表子组件
       listitem(v-for="new in item.stories",track-by="id",:new="new")
-    //- 加载
-    div.more(@click="getLastNews",v-if="news.length")
-      loading(:mask="false",v-if="loading")
-      span(v-else) 加载更多
+    //- 加载更多
+    more(:show="news.length",:loading="loading",:fun="getLastNews")
  </template>
 
 <script>
@@ -20,10 +18,10 @@ import store from '../vuex/store'
 import lazyload from '../utils/lazyload'
 import listitem from './general/listitem'
 import slider from './general/slider'
-import loading from './general/loading'
+import more from './general/more'
 
 export default {
-  components: { listitem,slider,loading },
+  components: { listitem, slider, more },
   data() {
     return {
       loading: false

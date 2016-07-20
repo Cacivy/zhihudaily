@@ -5,7 +5,7 @@ div
 		p {{topicPosts.description}}
 	div.news
 		listitem(v-if="topicPosts.stories",v-for="new in topicPosts.stories",track-by="id",:new="new")
-		loading(v-else,:mask="false")
+	loading
 </template>
 <script>
 import store from '../vuex/store'

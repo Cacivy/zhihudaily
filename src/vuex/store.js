@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import plugins from './plugins'
 
-// 告诉 vue “使用” vuex
 Vue.use(Vuex)
 
 var debug= process.env.NODE_ENV !== 'production'
@@ -19,7 +18,8 @@ const state = {
   topics: JSON.parse(localStorage.getItem(STORAGE_TOPICS_KEY) || '[]'),
   sections: JSON.parse(localStorage.getItem(STORAGE_SECTIONS_KEY) || '[]'),
   posts: JSON.parse(localStorage.getItem(STORAGE_POSTS_KEY) || '[]'),
-  topicPosts: {}
+  topicPosts: {},
+  sectionlist: {}
 }
 
 const mutations = {
@@ -41,11 +41,11 @@ const mutations = {
   ADD_SECTIONS (state, sections) {
     state.sections= sections
   },
+  ADD_SECTION (state, section) {
+    state.sectionlist= section
+  }
 }
 
-
-// 整合初始状态和变更函数，我们就得到了我们所需的 store
-// 至此，这个 store 就可以连接到我们的应用中
 export default new Vuex.Store({
   strict: debug,
   state,

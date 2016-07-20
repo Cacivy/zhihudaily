@@ -65,3 +65,12 @@ export const getTopicPosts = ({dispatch, state}, id) => {
 		dispatch('ADD_TOPICPOSTS',posts)
 	})
 }
+//获取栏目文字
+export const getSection = ({dispatch}, id) => {
+	api.getSectionsById(id).then(res => {
+		if(res.ok){
+			let section= JSON.parse(res.data)
+			dispatch('ADD_SECTION', section)
+		}
+	})
+}

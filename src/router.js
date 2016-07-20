@@ -18,6 +18,11 @@ export default function(router) {
 	    	component:function (resolve) {
 	    		require(['./components/TopicList'], resolve)
 	    	}
+	    },
+	    '/section/:id': {
+	    	component:function (resolve) {
+	    		require(['./components/SectionList'], resolve)
+	    	}
 	    }
 	})
 }

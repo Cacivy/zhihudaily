@@ -1,4 +1,4 @@
-import { NewsResource,NewsIdResource,NewsDateResource, NewsInfoResource, TopicsResource,TopicsIdResource, SectionsResource, SectionsIdResource } from './resource'
+import { NewsResource,NewsIdResource,NewsDateResource, NewsInfoResource, TopicsResource,TopicsIdResource, SectionsResource, SectionIdResource } from './resource'
 
 export default {
 	getNews() {
@@ -23,6 +23,6 @@ export default {
 		return SectionsResource.get()
 	},
 	getSectionsById(sectionid) {
-		return SectionsIdResource.get({sectionid: sectionid})
+		return SectionIdResource.get({sectionid: sectionid})
 	},
 }
