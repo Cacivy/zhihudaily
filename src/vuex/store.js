@@ -24,7 +24,7 @@ const mutations = {
     state.news.push(news)
   },
   UPDATE_NEWS (state, news) {
-	state.news.splice(0, 1, news)
+    state.news.splice(0, 1, news)
   },
   ADD_TOPICS (state, topics) {
   	state.topics= topics

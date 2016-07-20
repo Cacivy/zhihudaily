@@ -79,11 +79,15 @@ export default {
     }
   },
   ready() {
-    window.addEventListener('scroll',lazyload)
+    setTimeout(function(){
+      window.addEventListener('scroll',lazyload)
+    }, 0)
   },
   watch: {
     news(){
-      lazyload()
+      setTimeout(function(){
+        lazyload()
+      },100)
     }
   }
 }

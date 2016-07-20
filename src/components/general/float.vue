@@ -6,37 +6,68 @@ div.float
 	div.gohome(v-if="$route.path!=='/list'",title="返回主页",onclick="javascript:history.back()")
 		div.arrow
 		div.stick
-	div.gotopic(title="主题日报",v-else)
+	div.gotopic(title="主题日报",v-else,@click="toggle")
 		div.container
 			hr
 			hr
 			hr
+	ul.topics
+		li(v-for="item in topics")
+			a {{ item.name }}
+			dl
+				dt
+					img(src="../../assets/loading.gif",:data="item.thumbnail | zhihuimg")
+				dd
+					span {{ item.description }}
 </template>
 <script>
-	export default {
-		ready() {
-			var backTop = function (btnId){
-				var btn = document.getElementById(btnId);
-				var d = document.documentElement;
-				var b = document.body;
-				window.addEventListener('scroll',btnDisplay)
-				btn.onclick = function (){
-					btn.style.display = "none";
-					//window.onscroll = null;
-					this.timer = setInterval(function(){
-						d.scrollTop -= Math.ceil((d.scrollTop+b.scrollTop)*0.2);
-						b.scrollTop -= Math.ceil((d.scrollTop+b.scrollTop)*0.2);
-						if((d.scrollTop + b.scrollTop) == 0)
-							clearInterval(btn.timer);//window.onscroll = btnDisplay
-					},10);
-				};
-				function btnDisplay(){
-					btn.style.display=(d.scrollTop+b.scrollTop>200)?'block':"none";
-				}
+import store from '../../vuex/store'
+export default {
+	ready() {
+		var backTop = function (btnId){
+			var btn = document.getElementById(btnId);
+			var d = document.documentElement;
+			var b = document.body;
+			window.addEventListener('scroll',btnDisplay)
+			btn.onclick = function (){
+				btn.style.display = "none";
+				//window.onscroll = null;
+				this.timer = setInterval(function(){
+					d.scrollTop -= Math.ceil((d.scrollTop+b.scrollTop)*0.2);
+					b.scrollTop -= Math.ceil((d.scrollTop+b.scrollTop)*0.2);
+					if((d.scrollTop + b.scrollTop) == 0)
+						clearInterval(btn.timer);//window.onscroll = btnDisplay
+				},10);
 			};
-			backTop('gotop');//返回顶部调用
+			function btnDisplay(){
+				btn.style.display=(d.scrollTop+b.scrollTop>200)?'block':"none";
+			}
+		};
+		backTop('gotop');//返回顶部调用
+	},
+	store: store,
+	vuex: {
+	  getters: {
+	    topics: state => state.topics
+	  }
+	},
+	methods: {
+		toggle() {
+			let state= document.getElementsByClassName('topics')[0]
+			let dispaly= state.style.display
+			state.classList.add('animated')
+			if(dispaly=== 'none'){
+				state.style.display= 'block'
+				state.classList.remove('flipOutY')
+				state.classList.add('flipInY')
+			}else{
+				state.style.display= 'none'
+				state.classList.remove('flipInY')
+				state.classList.add('flipOutY')
+			}
 		}
 	}
+}
 </script>
 <style lang='scss' scope>
 	.float {
@@ -135,6 +166,54 @@ div.float
 					width: $width-top - 10px;
 					background: black;
 					margin-top:5px;
+				}
+			}
+		}
+
+		.topics {
+			position: absolute;
+			left: $width-top + 7px;
+			bottom: 35px;
+			width: 100px;
+			padding: 5px;
+			margin: 0;
+			color: $color-topicon;
+			display: none;
+			background-color: $color-light;
+			text-align: center;
+			border-radius: 3px;
+
+			li {
+				width: auto;
+				height: 24px;
+				cursor: pointer;
+
+				&:hover {
+					color: $color-blue;
+
+					dl {
+						display: block;
+					}
+				}
+
+				dl {
+					display: none;
+					margin: -50px 110px 0;
+
+					dt {
+						width: 100px;
+						img {
+							width: 100px;
+							height: 100px;
+							border-radius: 3px;
+						}
+					}
+
+					dd {
+						width: 100px;
+						margin: 0;
+						text-align: left;
+					}
 				}
 			}
 		}
