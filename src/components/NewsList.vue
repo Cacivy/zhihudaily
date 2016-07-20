@@ -1,32 +1,27 @@
-<template>
-  <div>
-    <div class="news" v-for="(index,item) in news" >
-      <h3 v-if="index">{{item.date | moment}}</h3>
-      <!-- 顶部图片 -->
-      <slider v-if="!index" :list="imglist"></slider>
-      <!-- 列表子组件 -->
-      <listitem v-for="new in item.stories" track-by="id" :new="new"></listitem>
-    </div>
-    <!-- 加载 -->
-    <div class="more" @click="getLastNews" v-if="news.length">
-      <loading :mask="false" v-if="loading"></loading>
-      <span v-else>加载更多</span>
-    </div>
-  </div>
+<template lang="jade">
+  div
+    div.news(v-for="(index,item) in news")
+      h3(v-if="index") {{item.date | moment}}
+      //- 顶部图片
+      slider(v-if="!index",:list="imglist")
+      //- 列表子组件
+      listitem(v-for="new in item.stories",track-by="id",:new="new")
+    //- 加载更多
+    more(:show="news.length",:loading="loading",:fun="getLastNews")
  </template>
 
 <script>
 import api from '../api/index'
 import moment from 'moment'
-import { getNews,getTopics,ADD_NEWSCounter } from '../vuex/action'
+import { getNews, getTopics, ADD_NEWSCounter, getSections } from '../vuex/action'
 import store from '../vuex/store'
 import lazyload from '../utils/lazyload'
 import listitem from './general/listitem'
 import slider from './general/slider'
-import loading from './general/loading'
+import more from './general/more'
 
 export default {
-  components: { listitem,slider,loading },
+  components: { listitem, slider, more },
   data() {
     return {
       loading: false
@@ -36,17 +31,22 @@ export default {
   vuex: {
     getters: {
       news: state => state.news,
-      topics: state => state.topics
+      topics: state => state.topics,
+      sections: state => state.sections
     },
     actions: {
-      getNews, getTopics, ADD_NEWSCounter
+      getNews, getTopics, ADD_NEWSCounter, getSections
     }
   },
   route: {
     data(transition) {
       this.getNews()
+      //数据缓存
       if(!this.topics.length){
         this.getTopics()
+      }
+      if(!this.sections.length){
+        this.getSections()
       }
     },
     // 這邊就是等待數據取得後才渲染組件關鍵，開啟 true 的話就會等到上面 data 處理完才會開始渲染
@@ -83,10 +83,15 @@ export default {
   },
   ready() {
     window.addEventListener('scroll',lazyload)
+    setTimeout(function(){
+      lazyload()
+    }, 1000)
   },
   watch: {
     news(){
-      lazyload()
+      // setTimeout(function(){
+      //   lazyload()
+      // },100)
     }
   }
 }

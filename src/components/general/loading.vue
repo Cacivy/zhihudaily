@@ -1,16 +1,12 @@
-<template>
-	  <div class="loading">
-	    <div class="container">
-	      <div></div>
-	      <div></div>
-	      <div></div>
-	      <div></div>
-	      <div></div>
-	    </div>
-	  </div>
-	  <div v-if="mask" class="floating">
-	  	
-	  </div>
+<template lang="jade">
+div.loading
+	div.container
+		div
+		div
+		div
+		div
+		div
+	div.floating(v-if="mask")
 </template>
 <script>
 	export default {

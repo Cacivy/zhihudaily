@@ -44,7 +44,7 @@ body {
 				border-right: 5px solid transparent;
 				position: relative;
 				left: 15px;
-				transform: rotate(20deg)
+				transform: rotate(30deg)
 			}
 		}
 	}
@@ -67,6 +67,7 @@ body {
 			img {
 				border-radius: 5px;
 				max-height: 100px;
+				max-width: 120px;
 			}
 
 			p {
@@ -83,17 +84,6 @@ body {
 				bottom: 10px; 
 			}
 		}
-	}
-
-	.more {
-		height: 30px;
-		line-height: 30px;
-		text-align: center;
-		margin: 20px;
-		background-color: $color-light;
-		border-radius: 5px;
-		cursor: pointer;
-		position: relative;
 	}
 
 	.detail {

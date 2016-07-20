@@ -1,15 +1,11 @@
-<template>
-    <div class="app">
-    	<div class="head">
-    		<h1>
-    			<em></em>
-    			<a v-link="{ path: '/list' }">知乎日报</a>
-    		</h1>
-    	</div>
-    
-      <router-view keep-alive transition="fade" ></router-view>
-      <float></float>
-    </div>
+<template lang="jade">
+    div.app
+        div.head
+            h1
+                em
+                a(v-link="{ path: '/list' }") 知乎日报
+        router-view(keep-alive,transition="fade")
+        float
  </template>
 
 <script>

@@ -4,7 +4,8 @@
 
 + vue + vue-route + vuex + vue-resource
 + lodash + moment.js + swiper
-+ sass + normalize.css + animate.css
++ jade + sass
++ normalize.css + animate.css
 
 ### To Do
 
@@ -18,8 +19,10 @@
 - [x] 轮播图控件
 - [x] 返回首页定位
 - [x] 过往消息缓存
-- [ ] 专栏
-- [ ] 查看赞/评论
+- [x] 专栏
+- [x] 栏目总览及列表
+- [x] 查看赞
+- [ ] 查看评论
 - [ ] 顶部/侧边搜索
 - [ ] 顶部进度条
 
@@ -41,8 +44,6 @@ npm run dev
 ```
 
 [http://localhost:8080](http://localhost:8080)
-
-有时候图会挂掉，因为知乎做了防外链，走的代理，不太稳定
 
 ### License
 

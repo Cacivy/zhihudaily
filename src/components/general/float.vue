@@ -1,47 +1,35 @@
-<template>
-	<div class="float">
-	    <div class="gotop" id="gotop" title="返回顶部">
-	        <div class="arrow"></div>
-	        <div class="stick"></div>
-	    </div>
-	    <div v-if="$route.path!=='/list'" title="返回主页" class="gohome" onclick="javascript:history.back()">
-	    	<div class="arrow"></div>
-	    	<div class="stick"></div>
-	    </div>
-	    <div v-else class="gotopic" title="主题日报">
-			<div class="container">
-				<hr>
-				<hr>
-				<hr>
-			</div>
-	    </div>
-	</div> 
+<template lang="jade">
+div.float
+	div.gotop#gotop(title="返回顶部")
+		div.arrow
+		div.stick
+	div.gohome(v-if="$route.path!=='/list'",title="返回主页",v-link="{ path: '/list'}")
+		div.arrow
+		div.stick
+	listshow(:list="topics",path="topic",title="主题日报",:index="0")
+	listshow(:list="sections",path="section",title="栏目总览",:index="1")
+
 </template>
 <script>
-	export default {
-		ready() {
-			var backTop = function (btnId){
-				var btn = document.getElementById(btnId);
-				var d = document.documentElement;
-				var b = document.body;
-				window.addEventListener('scroll',btnDisplay)
-				btn.onclick = function (){
-					btn.style.display = "none";
-					//window.onscroll = null;
-					this.timer = setInterval(function(){
-						d.scrollTop -= Math.ceil((d.scrollTop+b.scrollTop)*0.2);
-						b.scrollTop -= Math.ceil((d.scrollTop+b.scrollTop)*0.2);
-						if((d.scrollTop + b.scrollTop) == 0)
-							clearInterval(btn.timer);//window.onscroll = btnDisplay
-					},10);
-				};
-				function btnDisplay(){
-					btn.style.display=(d.scrollTop+b.scrollTop>200)?'block':"none";
-				}
-			};
-			backTop('gotop');//返回顶部调用
-		}
+import store from '../../vuex/store'
+import backTop from '../../utils/backtop'
+import listshow from './listshow'
+export default {
+	ready() {
+		backTop('gotop');//返回顶部调用
+	},
+	components: { listshow },
+	store: store,
+	vuex: {
+	  getters: {
+	    topics: state => state.topics,
+	    sections: state => state.sections
+	  }
+	},
+	methods: {
+
 	}
+}
 </script>
 <style lang='scss' scope>
 	.float {
@@ -116,32 +104,5 @@
 			}
 		}
 
-		.gotopic {
-			@include float-div;
-
-			&:hover .container>hr{
-				background: $color-blue;
-				opacity: .7;
-			}
-
-			.container {
-				width: $width-top - 10px;
-				height: 26px;
-				position: absolute;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				top: 0;
-				margin: auto;
-
-				hr {
-					display: block;
-					height: 2px;
-					width: $width-top - 10px;
-					background: black;
-					margin-top:5px;
-				}
-			}
-		}
 	}
 </style>

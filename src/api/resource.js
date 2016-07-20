@@ -14,7 +14,9 @@ var apiZhihu= {
     newsbydate: '/api/4/news/before{/date}',
     newsinfo: '/api/4/story-extra{/id}',
     topics: '/api/4/themes',
-    topicbyid: '/api/4/theme/{/topicid}}'
+    topicbyid: '/api/4/theme{/topicid}',
+    sections: '/api/3/sections',
+    sectionbyid: '/api/3/section{/sectionid}',
 }
 
 export const NewsResource = Vue.resource(API_ROOT.concat( apiZhihu.news ))
@@ -23,3 +25,5 @@ export const NewsDateResource = Vue.resource(API_ROOT.concat( apiZhihu.newsbydat
 export const NewsInfoResource = Vue.resource(API_ROOT.concat( apiZhihu.newsinfo ))
 export const TopicsResource = Vue.resource(API_ROOT.concat( apiZhihu.topics ))
 export const TopicsIdResource = Vue.resource(API_ROOT.concat( apiZhihu.topicbyid ))
+export const SectionsResource = Vue.resource(API_ROOT.concat( apiZhihu.sections ))
+export const SectionIdResource = Vue.resource(API_ROOT.concat( apiZhihu.sectionbyid ))
