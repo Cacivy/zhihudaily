@@ -1,4 +1,4 @@
-import { STORAGE_NEWS_KEY, STORAGE_TOPICS_KEY, STORAGE_POSTS_KEY } from './store'
+import { STORAGE_NEWS_KEY, STORAGE_TOPICS_KEY, STORAGE_POSTS_KEY, STORAGE_SECTIONS_KEY } from './store'
 import createLogger from './logger'
 
 const localStoragePlugin = store => {
@@ -10,6 +10,9 @@ const localStoragePlugin = store => {
   })
   store.subscribe((mutation, { posts }) => {
     localStorage.setItem(STORAGE_POSTS_KEY, JSON.stringify(posts))
+  })
+  store.subscribe((mutation, { sections }) => {
+    localStorage.setItem(STORAGE_SECTIONS_KEY, JSON.stringify(sections))
   })
 }
 

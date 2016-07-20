@@ -10,13 +10,16 @@ Vue.config.debug = debug
 
 export const STORAGE_NEWS_KEY = 'news'
 export const STORAGE_TOPICS_KEY = 'topics'
+export const STORAGE_SECTIONS_KEY = 'sections'
 export const STORAGE_POSTS_KEY = 'posts'
 
 
 const state = {
   news: JSON.parse(localStorage.getItem(STORAGE_NEWS_KEY) || '[]'),
   topics: JSON.parse(localStorage.getItem(STORAGE_TOPICS_KEY) || '[]'),
+  sections: JSON.parse(localStorage.getItem(STORAGE_SECTIONS_KEY) || '[]'),
   posts: JSON.parse(localStorage.getItem(STORAGE_POSTS_KEY) || '[]'),
+  topicPosts: {}
 }
 
 const mutations = {
@@ -31,7 +34,13 @@ const mutations = {
   },
   ADD_POSTS (state, post) {
     state.posts.push(post)
-  }
+  },
+  ADD_TOPICPOSTS (state, posts) {
+    state.topicPosts= posts
+  },
+  ADD_SECTIONS (state, sections) {
+    state.sections= sections
+  },
 }
 
 

@@ -16,7 +16,7 @@ filter(Vue)
 
 const router = new VueRouter({
   history: true,
-  hashbang: true,
+  hashbang: false,
   saveScrollPosition: true,
   suppressTransitionError: true,
   transitionOnLoad: true

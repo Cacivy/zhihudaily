@@ -27,6 +27,15 @@ export const getTopics = ({dispatch}) => {
 		}
 	})
 }
+//栏目总览缓存
+export const getSections = ({dispatch}) => {
+	api.getSections().then(res => {
+		if(res.ok){
+			let sections= JSON.parse(res.data)
+			dispatch('ADD_SECTIONS', sections.data)
+		}
+	})
+}
 //获取文章
 export const getPost = ({dispatch, state}, id) => {
 	let post= state.posts.find(p=>p.id == id);
@@ -48,4 +57,11 @@ export const getPost = ({dispatch, state}, id) => {
 			}
 		})
 	}
+}
+//获取主题日报文章
+export const getTopicPosts = ({dispatch, state}, id) => {
+	api.getTopicsById(id).then(res => {
+		let posts= JSON.parse(res.data)
+		dispatch('ADD_TOPICPOSTS',posts)
+	})
 }

@@ -13,6 +13,11 @@ export default function(router) {
 	    	component:function (resolve) {
 	    		require(['./components/NewDetail'], resolve)
 	    	}
+	    },
+	    '/topic/:id': {
+	    	component:function (resolve) {
+	    		require(['./components/TopicList'], resolve)
+	    	}
 	    }
 	})
 }

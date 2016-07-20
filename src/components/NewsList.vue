@@ -15,7 +15,7 @@
 <script>
 import api from '../api/index'
 import moment from 'moment'
-import { getNews,getTopics,ADD_NEWSCounter } from '../vuex/action'
+import { getNews, getTopics, ADD_NEWSCounter, getSections } from '../vuex/action'
 import store from '../vuex/store'
 import lazyload from '../utils/lazyload'
 import listitem from './general/listitem'
@@ -33,17 +33,22 @@ export default {
   vuex: {
     getters: {
       news: state => state.news,
-      topics: state => state.topics
+      topics: state => state.topics,
+      sections: state => state.sections
     },
     actions: {
-      getNews, getTopics, ADD_NEWSCounter
+      getNews, getTopics, ADD_NEWSCounter, getSections
     }
   },
   route: {
     data(transition) {
       this.getNews()
+      //数据缓存
       if(!this.topics.length){
         this.getTopics()
+      }
+      if(!this.sections.length){
+        this.getSections()
       }
     },
     // 這邊就是等待數據取得後才渲染組件關鍵，開啟 true 的話就會等到上面 data 處理完才會開始渲染
@@ -79,15 +84,16 @@ export default {
     }
   },
   ready() {
+    window.addEventListener('scroll',lazyload)
     setTimeout(function(){
-      window.addEventListener('scroll',lazyload)
-    }, 0)
+      lazyload()
+    }, 1000)
   },
   watch: {
     news(){
-      setTimeout(function(){
-        lazyload()
-      },100)
+      // setTimeout(function(){
+      //   lazyload()
+      // },100)
     }
   }
 }

@@ -3,17 +3,17 @@ div.float
 	div.gotop#gotop(title="返回顶部")
 		div.arrow
 		div.stick
-	div.gohome(v-if="$route.path!=='/list'",title="返回主页",onclick="javascript:history.back()")
+	div.gohome(v-if="$route.path!=='/list'",title="返回主页",v-link="{ path: '/list'}")
 		div.arrow
 		div.stick
-	div.gotopic(title="主题日报",v-else,@click="toggle")
+	div.gotopic(title="主题日报",@click="toggle(0)")
 		div.container
 			hr
 			hr
 			hr
-	ul.topics
+	ul.topics.animated
 		li(v-for="item in topics")
-			a {{ item.name }}
+			a(v-link="{ path: '/topic/'+ item.id }",@click="toggle(0)") {{ item.name }}
 			dl
 				dt
 					img(src="../../assets/loading.gif",:data="item.thumbnail | zhihuimg")
@@ -22,48 +22,29 @@ div.float
 </template>
 <script>
 import store from '../../vuex/store'
+import backTop from '../../utils/backtop'
 export default {
 	ready() {
-		var backTop = function (btnId){
-			var btn = document.getElementById(btnId);
-			var d = document.documentElement;
-			var b = document.body;
-			window.addEventListener('scroll',btnDisplay)
-			btn.onclick = function (){
-				btn.style.display = "none";
-				//window.onscroll = null;
-				this.timer = setInterval(function(){
-					d.scrollTop -= Math.ceil((d.scrollTop+b.scrollTop)*0.2);
-					b.scrollTop -= Math.ceil((d.scrollTop+b.scrollTop)*0.2);
-					if((d.scrollTop + b.scrollTop) == 0)
-						clearInterval(btn.timer);//window.onscroll = btnDisplay
-				},10);
-			};
-			function btnDisplay(){
-				btn.style.display=(d.scrollTop+b.scrollTop>200)?'block':"none";
-			}
-		};
 		backTop('gotop');//返回顶部调用
 	},
 	store: store,
 	vuex: {
 	  getters: {
-	    topics: state => state.topics
+	    topics: state => state.topics,
+	    sections: state => state.sections
 	  }
 	},
 	methods: {
-		toggle() {
-			let state= document.getElementsByClassName('topics')[0]
-			let dispaly= state.style.display
-			state.classList.add('animated')
-			if(dispaly=== 'none'){
-				state.style.display= 'block'
-				state.classList.remove('flipOutY')
-				state.classList.add('flipInY')
-			}else{
-				state.style.display= 'none'
+		toggle(type) {
+			let classname= type? '': 'topics'
+			let state= document.getElementsByClassName(classname)[0]
+			state.style.display= 'block'
+			if(state.classList.contains('flipInY')){
 				state.classList.remove('flipInY')
 				state.classList.add('flipOutY')
+			}else{
+				state.classList.remove('flipOutY')
+				state.classList.add('flipInY')
 			}
 		}
 	}
@@ -193,15 +174,22 @@ export default {
 
 					dl {
 						display: block;
+						/* color: $color-blue; */
 					}
 				}
 
 				dl {
 					display: none;
-					margin: -50px 110px 0;
+					margin: -50px 111px 0;
+					height: auto;
+					width: 100px;
+					padding: 5px;
+					background-color: $color-light;
+					color: $color-topicon;
+					border-radius: 3px;
 
 					dt {
-						width: 100px;
+						
 						img {
 							width: 100px;
 							height: 100px;
