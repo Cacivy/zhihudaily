@@ -33,6 +33,13 @@
 npm install
 ```
 
+安装node-sass需要使用cnpm
+
+```
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm i node-sass
+```
+
 开启代理
 ```nodejs
 npm run server
