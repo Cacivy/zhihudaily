@@ -25,6 +25,7 @@
 - [ ] 查看评论
 - [ ] 顶部/侧边搜索
 - [ ] 顶部进度条
+- [ ] v-lazy
 
 ### Dev
 
@@ -57,7 +58,7 @@ npm run dev
 > 感谢[yanunon](https://github.com/yanunon/NeteaseCloudMusic/wiki/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90API%E5%88%86%E6%9E%90)提供的api，以及[yatessss](https://github.com/yatessss/zhihudaily-vue)的图片代理解决方案
 
 
-### show
+### Show
 
 ![](./src/assets/screenshots/list.gif)
 
