@@ -60,6 +60,6 @@ npm run dev
 
 ### Show
 
-![](./src/assets/screenshots/list.gif)
+![](./src/assets/screenshots/list2.gif)
 
-![](./src/assets/screenshots/detail.gif)
+![](./src/assets/screenshots/sections.gif)
