@@ -5,16 +5,14 @@ div
 		p {{topicPosts.description}}
 	div.news
 		listitem(v-if="topicPosts.stories",v-for="new in topicPosts.stories",track-by="id",:new="new")
-	loading
+	loading(v-if="!topicPosts.stories")
 </template>
 <script>
-import store from '../vuex/store'
 import { getTopicPosts } from '../vuex/action'
 import listitem from './general/listitem'
 import loading from './general/loading'
 export default {
 	components: { listitem, loading },
-	store: store,
 	vuex: {
 	  getters: {
 	    topicPosts: state => state.topicPosts

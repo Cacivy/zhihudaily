@@ -14,7 +14,6 @@
 import api from '../api/index'
 import moment from 'moment'
 import { getNews, getTopics, ADD_NEWSCounter, getSections } from '../vuex/action'
-import store from '../vuex/store'
 import lazyload from '../utils/lazyload'
 import listitem from './general/listitem'
 import slider from './general/slider'
@@ -27,7 +26,6 @@ export default {
       loading: false
     }
   },
-  store: store,
   vuex: {
     getters: {
       news: state => state.news,

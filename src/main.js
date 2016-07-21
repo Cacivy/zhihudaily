@@ -15,8 +15,8 @@ Vue.use(VueRouter)
 filter(Vue)
 
 const router = new VueRouter({
-  history: true,
-  hashbang: true,
+  history: false,
+  hashbang: false,
   saveScrollPosition: true,
   suppressTransitionError: true,
   transitionOnLoad: true
