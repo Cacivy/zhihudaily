@@ -2,7 +2,7 @@
 div.swiper-container
 	div.swiper-wrapper
 		div.swiper-slide(v-for="(index,item) in list")
-			img(v-if="index>1",src="../../assets/loading.gif",:data="item.image | zhihuimg")
+			img(v-if="index>1",v-lazy="item.image | zhihuimg")
 			img(v-else,:src="item.image | zhihuimg")
 			p(v-link="{ path: item.url}") {{item.title}}
 	div.swiper-pagination
@@ -10,7 +10,6 @@ div.swiper-container
 
 <script>
 import '../../../node_modules/swiper/dist/css/swiper.min.css'
-import lazyload from '../../utils/lazyload'
 import Swiper from 'swiper'
 export default {
 	props: {

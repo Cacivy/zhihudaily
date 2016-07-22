@@ -14,7 +14,6 @@
 import api from '../api/index'
 import moment from 'moment'
 import { getNews, getTopics, ADD_NEWSCounter, getSections } from '../vuex/action'
-import lazyload from '../utils/lazyload'
 import listitem from './general/listitem'
 import slider from './general/slider'
 import more from './general/more'
@@ -77,19 +76,6 @@ export default {
         this.ADD_NEWSCounter(news)
         this.loading= false
       })
-    }
-  },
-  ready() {
-    window.addEventListener('scroll',lazyload)
-    setTimeout(function(){
-      lazyload()
-    }, 1000)
-  },
-  watch: {
-    news(){
-      // setTimeout(function(){
-      //   lazyload()
-      // },100)
     }
   }
 }

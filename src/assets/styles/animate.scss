@@ -1,4 +1,4 @@
-.opacity {
+img[lazy=loaded] {
 	-webkit-animation-name: opacity; /*动画名称*/
 	-webkit-animation-duration: 2s; /*动画持续时间*/
 	-webkit-animation-iteration-count: 1; /*动画次数*/
@@ -6,7 +6,7 @@
 }
 
 @-webkit-keyframes opacity {
-  from { opacity: 0.1 } 
+  from { opacity: 0.3 } 
   to { opacity: 1 }
 }
 
