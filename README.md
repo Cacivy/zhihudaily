@@ -22,10 +22,10 @@
 - [x] 专栏
 - [x] 栏目总览及列表
 - [x] 查看赞
+- [x] v-lazy
 - [ ] 查看评论
 - [ ] 顶部/侧边搜索
 - [ ] 顶部进度条
-- [ ] v-lazy
 
 ### Dev
 
@@ -38,7 +38,7 @@ npm install
 
 ```
 npm install -g cnpm --registry=https://registry.npm.taobao.org
-cnpm i node-sass
+cnpm install node-sass
 ```
 
 开启代理
