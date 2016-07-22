@@ -22,6 +22,7 @@
 - [x] 专栏
 - [x] 栏目总览及列表
 - [x] 查看赞
+- [x] v-lazy
 - [ ] 查看评论
 - [ ] 顶部/侧边搜索
 - [ ] 顶部进度条
@@ -31,6 +32,13 @@
 先安装依赖包
 ```nodejs
 npm install
+```
+
+安装node-sass需要使用cnpm
+
+```
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm install node-sass
 ```
 
 开启代理
@@ -50,8 +58,8 @@ npm run dev
 > 感谢[yanunon](https://github.com/yanunon/NeteaseCloudMusic/wiki/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90API%E5%88%86%E6%9E%90)提供的api，以及[yatessss](https://github.com/yatessss/zhihudaily-vue)的图片代理解决方案
 
 
-### show
+### Show
 
-![](./src/assets/screenshots/list.gif)
+![](./src/assets/screenshots/list2.gif)
 
-![](./src/assets/screenshots/detail.gif)
+![](./src/assets/screenshots/sections.gif)

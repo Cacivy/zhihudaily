@@ -10,7 +10,6 @@ div
 <script>
   import api from '../api/index'
   import { getPost } from '../vuex/action'
-  import store from '../vuex/store'
   import loading from './general/loading'
   import left from './general/left'
   export default {
@@ -29,7 +28,6 @@ div
         return post
       }
     },
-    store: store,
     vuex: {
       getters: {
         posts: state => state.posts

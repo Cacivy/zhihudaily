@@ -9,7 +9,7 @@
 			a(v-link="{ path: `/${path}/`+ item.id }",@click="toggle(0)",:title="item.name") {{ item.name }}
 			dl
 				dt
-					img(src="../../assets/loading.gif",:data="item.thumbnail | zhihuimg")
+					img(v-lazy="item.thumbnail | zhihuimg")
 				dd
 					span {{ item.description }}
 </template>

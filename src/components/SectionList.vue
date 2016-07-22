@@ -5,13 +5,11 @@ div
 	loading(v-else)
 </template>
 <script>
-import store from '../vuex/store'
 import { getSection } from '../vuex/action'
 import listitem from './general/listitem'
 import loading from './general/loading'
 export default {
 	components: { listitem, loading },
-	store: store,
 	vuex: {
 	  getters: {
 	    sectionlist: state => state.sectionlist

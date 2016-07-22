@@ -11,7 +11,6 @@ div.float
 
 </template>
 <script>
-import store from '../../vuex/store'
 import backTop from '../../utils/backtop'
 import listshow from './listshow'
 export default {
@@ -19,7 +18,6 @@ export default {
 		backTop('gotop');//返回顶部调用
 	},
 	components: { listshow },
-	store: store,
 	vuex: {
 	  getters: {
 	    topics: state => state.topics,
