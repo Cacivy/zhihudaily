@@ -2,8 +2,8 @@
 
 ### 技术栈
 
-+ vue + vue-route + vuex + vue-resource
-+ lodash + moment.js + swiper
++ vuejs + vue-route + vuex + vue-resource
++ moment.js + swiper
 + jade + sass
 + normalize.css + animate.css
 
@@ -24,8 +24,6 @@
 - [x] 查看赞
 - [x] v-lazy
 - [ ] 查看评论
-- [ ] 顶部/侧边搜索
-- [ ] 顶部进度条
 
 ### Dev
 
