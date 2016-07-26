@@ -14,8 +14,8 @@ Vue.use(VueRouter)
 
 // 图片懒加载
 Vue.use(lazyload, {
-  error: 'static/error.jpg',
-  loading: 'static/loading.gif',
+  error: '/static/error.jpg',
+  loading: '/static/loading.gif',
   try: 1 // default 1
 })
 
