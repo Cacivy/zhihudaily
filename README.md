@@ -27,6 +27,7 @@
 
 ### 目录
 
+```
 .
 ├── README.md
 ├── build webpack配置
@@ -73,6 +74,7 @@
 	    └── store.js
 ├── static 静态资源，如默认加载图片
 └── test karma测试
+```
 
 ### Dev
 
