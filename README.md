@@ -25,6 +25,55 @@
 - [x] v-lazy
 - [ ] 查看评论
 
+### 目录
+
+.
+├── README.md
+├── build webpack配置
+├── config 配置文件
+├── dist 打包文件夹
+├── index.html 页面入口
+├── node_modules 
+├── package.json 
+├── src 
+	├── App.vue
+	├── api
+	│   ├── api.js 知乎api
+	│   ├── index.js api接口
+	│   ├── resource.js VueResource
+	│   └── server.js node代理
+	├── assets
+	│   ├── logo.png
+	│   ├── screenshots 截图
+	│   │   ├── detail.gif
+	│   │   ├── list.gif
+	│   │   ├── list2.gif
+	│   │   └── sections.gif
+	│   └── styles
+	│       ├── animate.scss 一些css3动画
+	│       ├── reset.css cssreset
+	│       ├── root.scss 整体样式
+	│       └── zhihu.css 知乎文章页的默认样式
+	├── components
+	│   ├── NewDetail.vue 文章详情页
+	│   ├── NewsList.vue 文章列表页
+	│   ├── SectionList.vue 栏目总览
+	│   ├── TopicList.vue 主题日报
+	│   └── general 通用组件
+	├── filter.js 过滤器
+	├── main.js js入口
+	├── router.js 路由
+	├── utils
+	│   ├── backtop.js
+	│   └── lazyload.js 已改为v-lazy
+	└── vuex
+	    ├── action.js 
+	    ├── logger.js
+	    ├── plugins.js
+	    └── store.js
+├── static 静态资源，如默认加载图片
+└── test karma测试
+
 ### Dev
 
 先安装依赖包
