@@ -3,6 +3,9 @@ import NewsList from './components/NewsList'
 
 export default function(router) {
 	router.map({
+		'/': {
+			component: NewsList
+		},
 		'/list': {
 			component: NewsList
 		},
