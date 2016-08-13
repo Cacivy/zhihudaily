@@ -2,7 +2,7 @@
 div
 	div.news(v-if="sectionlist.stories",v-for="item in sectionlist")
 		listitem(v-for="new in sectionlist.stories",track-by="id",:new="new")
-	loading(v-else)
+	<!-- loading(v-else) -->
 </template>
 <script>
 import { getSection } from '../vuex/action'

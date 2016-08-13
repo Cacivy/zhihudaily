@@ -19,7 +19,8 @@ const state = {
   sections: JSON.parse(localStorage.getItem(STORAGE_SECTIONS_KEY) || '[]'),
   posts: JSON.parse(localStorage.getItem(STORAGE_POSTS_KEY) || '[]'),
   topicPosts: {},
-  sectionlist: {}
+  sectionlist: {},
+  loading: false
 }
 
 const mutations = {
@@ -43,6 +44,9 @@ const mutations = {
   },
   ADD_SECTION (state, section) {
     state.sectionlist= section
+  },
+  LOADING (state, loadstate) {
+    state.loading = loadstate
   }
 }
 

@@ -1,11 +1,23 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import { API_ROOT } from './api'
+import { Loading } from '../vuex/action'
+import store from '../vuex/store'
 
 Vue.use(VueResource)
 
 Vue.http.options.crossOrigin = true
 // Vue.http.options.credentials = true
+
+// Vue-resource全局请求拦截
+Vue.http.interceptors.push((request, next)  => {
+
+	Loading(store, true)
+    // continue to next interceptor
+    next((response) => {
+        Loading(store, false)
+    });
+});
 
 var apiZhihu= {
     startimage: '/api/4/start-image/1080*1776',

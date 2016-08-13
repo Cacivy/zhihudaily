@@ -5,7 +5,7 @@ div
 		p {{topicPosts.description}}
 	div.news
 		listitem(v-if="topicPosts.stories",v-for="new in topicPosts.stories",track-by="id",:new="new")
-	loading(v-if="!topicPosts.stories")
+	<!-- loading(v-if="!topicPosts.stories") -->
 </template>
 <script>
 import { getTopicPosts } from '../vuex/action'

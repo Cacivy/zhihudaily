@@ -4,6 +4,10 @@ export const ADD_NEWSCounter = function({ dispatch }, news) {
 	dispatch('ADD_NEWS', news)
 }
 
+export const Loading = function({ dispatch }, state) {
+	dispatch('LOADING', state)
+}
+
 function makeAction (type) {
 	return ({ dispatch }, ...args) => dispatch(type, ...args)
 }
