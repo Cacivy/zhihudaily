@@ -45,7 +45,8 @@ div
           this.getPost(id)
         }
       },
-      // 這邊就是等待數據取得後才渲染組件關鍵，開啟 true 的話就會等到上面 data 處理完才會開始渲染
+      // 這邊就是等待數據取得後才渲染組件關鍵，開啟 true 的話就會
+      // 等到上面 data 處理完才會開始渲染
       waitForData: false
     }
   }

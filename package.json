@@ -5,8 +5,8 @@
   "author": "Cacivy <609448234@qq.com>",
   "private": true,
   "scripts": {
-    "start": "npm run server & npm run dev",
     "dev": "node build/dev-server.js",
+    "start": "NODE_ENV=producting PORT=1234 npm run dev", 
     "build": "node build/build.js",
     "server": "node src/api/server.js",
     "unit": "karma start test/unit/karma.conf.js --single-run",
@@ -23,7 +23,9 @@
     "vue-lazyload": "^0.4.3",
     "vue-resource": "^0.9.3",
     "vue-router": "^0.7.13",
-    "vuex": "^1.0.0-rc.2",
+    "vuex": "^1.0.0-rc.2"
+  },
+  "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
     "babel-plugin-transform-runtime": "^6.0.0",
