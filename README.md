@@ -7,6 +7,10 @@
 + jade + sass
 + normalize.css + animate.css
 
+### Demo
+
+[戳我](http://104.160.39.244:8080)
+
 ### To Do
 
 - [x] 列表页
