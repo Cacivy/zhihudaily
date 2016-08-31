@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "start": "NODE_ENV=producting PORT=80 npm run dev",
+    "start": "NODE_ENV=producting PORT=1234 npm run dev", 
     "build": "node build/build.js",
     "server": "node src/api/server.js",
     "unit": "karma start test/unit/karma.conf.js --single-run",
@@ -20,7 +20,7 @@
     "normalize.css": "^4.2.0",
     "swiper": "^3.3.1",
     "vue": "^1.0.21",
-    "vue-lazyload": "^0.7.1",
+    "vue-lazyload": "^0.4.3",
     "vue-resource": "^0.9.3",
     "vue-router": "^0.7.13",
     "vuex": "^1.0.0-rc.2"
