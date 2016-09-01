@@ -28,7 +28,17 @@ const mutations = {
     state.news.push(news)
   },
   UPDATE_NEWS (state, news) {
-    state.news.splice(0, 1, news)
+    if(state.news.length) {
+      if(state.news[0].stories.length !== news.stories.length) {
+        news.stories.forEach(x => {
+          if(state.news[0].stories.indexOf(x) === -1) {
+            state.news[0].stories.splice(0, 0, x);
+          }
+        })
+      }
+    }else {
+      state.news.push(news)
+    }
   },
   ADD_TOPICS (state, topics) {
   	state.topics= topics

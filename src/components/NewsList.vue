@@ -37,7 +37,14 @@ export default {
   },
   route: {
     data(transition) {
-      this.getNews()
+      if(!this.news.length) {
+        this.getNews()
+      } else {
+        setTimeout(function(){
+          this.getNews()
+        }, 1000); 
+      }
+      
       //数据缓存
       if(!this.topics.length){
         this.getTopics()

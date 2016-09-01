@@ -6,9 +6,9 @@ export default function(router) {
 		'/': {
 			component: NewsList
 		},
-		'/list': {
-			component: NewsList
-		},
+		// '/list': {
+		// 	component: NewsList
+		// },
 	    // '/new/:id': {
 	    //     component: NewDetail
 	    // }

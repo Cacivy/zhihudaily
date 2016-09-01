@@ -3,7 +3,7 @@ div.float
 	div.gotop#gotop(title="返回顶部")
 		div.arrow
 		div.stick
-	div.gohome(v-if="$route.path!=='/list'",title="返回主页",v-link="{ path: '/list'}")
+	div.gohome(v-if="$route.path!=='/'",title="返回主页",v-link="{ path: '/'}")
 		div.arrow
 		div.stick
 	listshow(:list="topics",path="topic",title="主题日报",:index="0")

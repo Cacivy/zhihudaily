@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "start": "NODE_ENV=producting PORT=1234 npm run dev", 
+    "start": "NODE_ENV=producting PORT=8080 npm run dev", 
     "build": "node build/build.js",
     "server": "node src/api/server.js",
     "unit": "karma start test/unit/karma.conf.js --single-run",

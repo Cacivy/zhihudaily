@@ -3,7 +3,7 @@
         div.head
             h1
                 em
-                a(v-link="{ path: '/list' }") 知乎日报
+                a(v-link="{ path: '/' }") 知乎日报
         load(v-if="loading")
         router-view(keep-alive,transition="fade")
         float
@@ -30,7 +30,3 @@ export default {
     }
 }
 </script>
-
-<style lang='scss'>
-
-</style>
