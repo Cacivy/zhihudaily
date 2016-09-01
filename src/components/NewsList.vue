@@ -35,23 +35,26 @@ export default {
       getNews, getTopics, ADD_NEWSCounter, getSections
     }
   },
+  ready() {
+    if(!this.news.length) {
+      this.getNews()
+    } else {
+      setTimeout(() => {
+        this.getNews()
+      }, 1000); 
+    }
+    
+    //数据缓存
+    if(!this.topics.length){
+      this.getTopics()
+    }
+    if(!this.sections.length){
+      this.getSections()
+    }
+  },
   route: {
     data(transition) {
-      if(!this.news.length) {
-        this.getNews()
-      } else {
-        setTimeout(() => {
-          this.getNews()
-        }, 1000); 
-      }
       
-      //数据缓存
-      if(!this.topics.length){
-        this.getTopics()
-      }
-      if(!this.sections.length){
-        this.getSections()
-      }
     },
     // 這邊就是等待數據取得後才渲染組件關鍵，開啟 true 的話就會等到上面 data 處理完才會開始渲染
     waitForData: false

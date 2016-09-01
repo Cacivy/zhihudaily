@@ -31,14 +31,14 @@ const mutations = {
     if(state.news.length) {
       if(state.news[0].stories.length !== news.stories.length) {
         news.stories.forEach(x => {
-          if(state.news[0].stories.indexOf(x) === -1) {
+          if(!state.news[0].stories.some(t => {return t.id === x.id})) {
             state.news[0].stories.splice(0, 0, x);
           }
         })
       }
       // 顶部文章
       news.top_stories.forEach(x => {
-        if(!state.news[0].top_stories.some( t => {return t.id === x.id})) {
+        if(!state.news[0].top_stories.some(t => {return t.id === x.id})) {
           state.news[0].top_stories.pop();
           state.news[0].top_stories.unshift(x);
         }
