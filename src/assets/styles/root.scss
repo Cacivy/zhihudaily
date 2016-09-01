@@ -20,6 +20,7 @@ body {
 .app {
 	min-height: 100%;
 	width: 640px;
+	// min-width: 500px;
 	margin: 0 auto;
 	padding-bottom: 10px;
 	background-color: $color-white;
@@ -76,6 +77,7 @@ body {
 				vertical-align: top;
 				font-size: 16px;
 				width: 400px;
+				// min-width: 300px;
 			}
 
 			em {
@@ -93,3 +95,13 @@ body {
 	}
 }
 
+// @media screen and (max-width: 640px) {
+//     .app {
+//     	width:100%;
+//         background-color: #fff;
+//     }
+
+//     .app .news .new p {
+//     	width: 300px !important;
+//     }
+// }

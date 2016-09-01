@@ -23,7 +23,7 @@ import loading from '../general/loading'
 </script>
 
 <style lang='scss'>
-$color-light: #F9F9F9;
+$color-light: #eee;
 	.more {
 		height: 30px;
 		line-height: 30px;

@@ -1,10 +1,10 @@
 <template lang="jade">
 div.swiper-container
 	div.swiper-wrapper
-		div.swiper-slide(v-for="(index,item) in list")
+		div.swiper-slide(v-for="(index,item) in list", v-link="{ path: item.url}")
 			img(v-if="index>1",:src="item.image | zhihuimg")
 			img(v-else,:src="item.image | zhihuimg")
-			p(v-link="{ path: item.url}") {{item.title}}
+			p() {{item.title}}
 	div.swiper-pagination
 </template>
 
@@ -36,7 +36,7 @@ export default {
 	
 <style lang="scss" scope>
 .swiper-container {
-    width: 640px;
+    max-width: 640px;
     height: 640px;
 }  
 
