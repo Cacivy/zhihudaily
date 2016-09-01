@@ -42,6 +42,7 @@ export default {
 
 .swiper-slide {
 	position: relative;
+	cursor: pointer;
 
 	p {
 		width: 70%;
