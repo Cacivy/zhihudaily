@@ -59,7 +59,7 @@ export default {
   computed: {
     imglist() {
       let arr= []
-      if(this.news.length){
+      if(this.news.length && this.news[0].top_stories){
          let top_stories= this.news[0].top_stories
          top_stories.forEach(item => {
           arr.push({
