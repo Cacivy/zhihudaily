@@ -40,7 +40,7 @@ export default {
       if(!this.news.length) {
         this.getNews()
       } else {
-        setTimeout(function(){
+        setTimeout(() => {
           this.getNews()
         }, 1000); 
       }

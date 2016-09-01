@@ -11,7 +11,6 @@ Vue.http.options.crossOrigin = true
 
 // Vue-resource全局请求拦截
 Vue.http.interceptors.push((request, next)  => {
-
 	Loading(store, true)
     // continue to next interceptor
     next((response) => {

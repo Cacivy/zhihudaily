@@ -36,6 +36,13 @@ const mutations = {
           }
         })
       }
+      // 顶部文章
+      news.top_stories.forEach(x => {
+        if(!state.news[0].top_stories.some( t => {return t.id === x.id})) {
+          state.news[0].top_stories.splice(0, 1, x);
+        }
+      })
+
     }else {
       state.news.push(news)
     }

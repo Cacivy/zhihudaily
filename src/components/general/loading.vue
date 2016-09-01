@@ -20,7 +20,7 @@ div.loading
 </script>
 <style lang="scss" scope>
 	.floating {
-		position: fixed;
+		position: absolute;
 		width: 100%;
 		height: 100%;
 		left: 0;

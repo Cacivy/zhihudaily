@@ -4,7 +4,7 @@
             h1
                 em
                 a(v-link="{ path: '/' }") 知乎日报
-        load(v-if="loading")
+        load(v-if="loading && loadingok")
         router-view(keep-alive,transition="fade")
         float
  </template>
@@ -22,8 +22,19 @@ export default {
 	},
     vuex: {
       getters: {
-        loading: state => state.loading
+        loading: state => state.loading,
+        news: state => state.news
       }
+    },
+    computed: {
+        loadingok() {
+            if(this.$route.path !== '/') {
+                return true;
+            }else if(!this.news.length) {
+                return true;
+            }
+            return false;
+        }
     },
     components: {
         float, load
