@@ -29,21 +29,27 @@ const mutations = {
   },
   UPDATE_NEWS (state, news) {
     if(state.news.length) {
-      if(state.news[0].stories.length !== news.stories.length) {
-        news.stories.forEach(x => {
-          if(!state.news[0].stories.some(t => {return t.id === x.id})) {
-            state.news[0].stories.splice(0, 0, x);
+      // 判断是否是当日日期
+      if(state.news[0].date !== news.date) {
+        state.news.unshift(news);
+      } else {
+
+        if(state.news[0].stories.length !== news.stories.length) {
+          // 如果不存在则添加
+          news.stories.forEach(x => {
+            if(!state.news[0].stories.some(t => {return t.id === x.id})) {
+              state.news[0].stories.splice(0, 0, x);
+            }
+          })
+        }
+        // 顶部文章
+        news.top_stories.forEach(x => {
+          if(!state.news[0].top_stories.some(t => {return t.id === x.id})) {
+            state.news[0].top_stories.pop();
+            state.news[0].top_stories.unshift(x);
           }
         })
       }
-      // 顶部文章
-      news.top_stories.forEach(x => {
-        if(!state.news[0].top_stories.some(t => {return t.id === x.id})) {
-          state.news[0].top_stories.pop();
-          state.news[0].top_stories.unshift(x);
-        }
-      })
-
     }else {
       state.news.push(news)
     }
