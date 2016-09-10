@@ -1,3 +1,4 @@
+
 import Vue from 'vue'
 import Vuex from 'vuex'
 import plugins from './plugins'
@@ -20,12 +21,16 @@ const state = {
   posts: JSON.parse(localStorage.getItem(STORAGE_POSTS_KEY) || '[]'),
   topicPosts: {},
   sectionlist: {},
-  loading: false
+  loading: false,
+  index: 0
 }
 
 const mutations = {
   ADD_NEWS (state, news) {
     state.news.push(news)
+  },
+  ADD_INDEX (state) {
+    state.index++;
   },
   UPDATE_NEWS (state, news) {
     if(state.news.length) {

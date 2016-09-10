@@ -12,6 +12,10 @@ function makeAction (type) {
 	return ({ dispatch }, ...args) => dispatch(type, ...args)
 }
 
+export const addIndex = ({dispatch}) => {
+	dispatch('ADD_INDEX')
+}
+
 //获取当日热闻
 export const getNews = ({dispatch, state}) => {
 	//更新缓存

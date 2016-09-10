@@ -15,8 +15,8 @@ Vue.http.interceptors.push((request, next)  => {
     // continue to next interceptor
     next((response) => {
         Loading(store, false)
-    });
-});
+    })
+})
 
 var apiZhihu= {
     startimage: '/api/4/start-image/1080*1776',

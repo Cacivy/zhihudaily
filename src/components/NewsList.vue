@@ -1,6 +1,6 @@
 <template lang="jade">
   div
-    div.news(v-for="(index,item) in news")
+    div.news(v-for="(index,item) in showlist")
       h3(v-if="index") {{item.date | moment}}
       //- 顶部图片
       slider(v-if="!index",:list="imglist")
@@ -13,7 +13,7 @@
 <script>
 import api from '../api/index'
 import moment from 'moment'
-import { getNews, getTopics, ADD_NEWSCounter, getSections } from '../vuex/action'
+import { getNews, getTopics, ADD_NEWSCounter, getSections, addIndex } from '../vuex/action'
 import listitem from './general/listitem'
 import slider from './general/slider'
 import more from './general/more'
@@ -29,19 +29,20 @@ export default {
     getters: {
       news: state => state.news,
       topics: state => state.topics,
-      sections: state => state.sections
+      sections: state => state.sections,
+      index: state => state.index
     },
     actions: {
-      getNews, getTopics, ADD_NEWSCounter, getSections
+      getNews, getTopics, ADD_NEWSCounter, getSections, addIndex
     }
   },
   ready() {
     if(!this.news.length) {
       this.getNews()
     } else {
-      setTimeout(() => {
+      // setTimeout(() => {
         this.getNews()
-      }, 1000); 
+      // }, 1000); 
     }
     
     //数据缓存
@@ -60,6 +61,15 @@ export default {
     waitForData: false
   },
   computed: {
+    showlist() {
+      let arr = [];
+      if (this.news.length) {
+        arr = this.news.filter((x, index) => {
+          return index <= this.index;
+        })
+      }
+      return arr
+    },
     imglist() {
       let arr= []
       if(this.news.length && this.news[0].top_stories){
@@ -78,13 +88,22 @@ export default {
   methods: {
     getLastNews() {
       this.loading= true
+      this.addIndex();
+      if (this.news.length - 1 > this.index) {
+        this.$nextTick(() => {
+          this.loading = false
+        })
+        return false
+      }
       let date= this.news[this.news.length-1].date
       //let date= moment(lastdate,'YYYYMMDD').add(-1, 'days').format('YYYYMMDD')
       api.getNewsByDate(date).then(res => {
         let news= JSON.parse(res.data)
         //this.news.push(news)
         this.ADD_NEWSCounter(news)
-        this.loading= false
+        this.$nextTick(() => {
+          this.loading = false
+        })
       })
     }
   }
