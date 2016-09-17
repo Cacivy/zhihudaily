@@ -29,9 +29,10 @@ div.loading
 		background: rgba(128, 128, 128, 0.6)
 	}
 	.loading {
-	  width: 300px;
+	  width: 100%;
 	  height: 100px;
 	  z-index: 10001;
+	  position: relative;
 
 	  $width-div: 5px;
 	  $width-border: 3px;

@@ -4,7 +4,7 @@
             h1
                 em
                 a(v-link="{ path: '/' }") 知乎日报
-        load(v-if="loading && loadingok")
+        load(v-if="loading")
         router-view(keep-alive,transition="fade")
         float
  </template>
