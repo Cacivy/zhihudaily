@@ -7,7 +7,7 @@
       //- 列表子组件
       listitem(v-for="new in item.stories",track-by="id",:new="new")
     //- 加载更多
-    more(:show="news.length",:loading="true",:fun="getLastNews")
+    more(:show="news.length",:loading="loading",:fun="getLastNews")
  </template>
 
 <script>
