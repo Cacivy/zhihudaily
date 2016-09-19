@@ -30,7 +30,7 @@ div.loading
 	}
 	.loading {
 	  width: 100%;
-	  height: 100px;
+	  height: 30px;
 	  z-index: 10001;
 	  position: relative;
 

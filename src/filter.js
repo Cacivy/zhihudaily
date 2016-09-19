@@ -1,6 +1,6 @@
-import moment from 'moment'
+import moment from './utils/date'
 export default function(Vue) {
-    moment.locale('zh-cn');
+    // moment.locale('zh-cn');
     //知乎图片403代理 
     Vue.filter('zhihuimg', function(value) {
             return value && value.replace(/http\w{0,1}:\/\/p/g, 'https://images.weserv.nl/?url=p')
@@ -11,7 +11,8 @@ export default function(Vue) {
         })
         //moment
     Vue.filter('moment', function(value) {
-        return value && moment(value, 'YYYYMMDD').format('MMMM Do dddd')
+        return moment(value)
+        //&& moment(value, 'YYYYMMDD').format('MMMM Do dddd')
 
         // moment(value,'YYYYMMDD').calendar(null,{
         //     sameDay: '[Today]',

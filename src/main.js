@@ -7,7 +7,7 @@ import store from './vuex/store'
 import { sync } from 'vuex-router-sync'
 import App from './App'
 import './assets/styles/root.scss'
-import '../node_modules/animate.css/animate.min.css'
+// import '../node_modules/animate.css/animate.min.css'
 
 // Vue.transition('fade', { type: 'animation', enterClass: 'zoomIn', leaveClass: 'zoomIn'})
 Vue.use(VueRouter)
