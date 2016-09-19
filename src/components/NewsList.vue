@@ -7,12 +7,11 @@
       //- 列表子组件
       listitem(v-for="new in item.stories",track-by="id",:new="new")
     //- 加载更多
-    more(:show="news.length",:loading="loading",:fun="getLastNews")
+    more(:show="news.length",:loading="true",:fun="getLastNews")
  </template>
 
 <script>
 import api from '../api/index'
-import moment from 'moment'
 import { getNews, getTopics, ADD_NEWSCounter, getSections, addIndex } from '../vuex/action'
 import listitem from './general/listitem'
 import slider from './general/slider'

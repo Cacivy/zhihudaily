@@ -3,7 +3,7 @@
 ### 技术栈
 
 + vuejs + vue-router + vuex + vue-resource
-+ moment.js + swiper
++ swiper
 + jade + sass
 + normalize.css + animate.css
 

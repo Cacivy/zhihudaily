@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "start": "NODE_ENV=producting PORT=8080 npm run dev", 
+    "start": "NODE_ENV=producting PORT=8080 npm run dev",
     "build": "node build/build.js",
     "server": "node src/api/server.js",
     "unit": "karma start test/unit/karma.conf.js --single-run",
@@ -15,8 +15,6 @@
   "dependencies": {
     "animate.css": "^3.5.1",
     "babel-runtime": "^6.0.0",
-    "lodash": "^4.13.1",
-    "moment": "^2.14.1",
     "normalize.css": "^4.2.0",
     "swiper": "^3.3.1",
     "vue": "^1.0.21",
