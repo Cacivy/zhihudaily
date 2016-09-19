@@ -31,6 +31,7 @@ div.loading
 	.loading {
 	  width: 100%;
 	  height: 30px;
+	  margin-bottom: 30px;
 	  z-index: 10001;
 	  position: relative;
 
