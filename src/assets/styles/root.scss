@@ -41,6 +41,10 @@ body {
 			color: $color-blue;
 			font-size: 25px;
 
+			a {
+				cursor: pointer;
+			}
+
 			em {
 				display: inline-block;
 				width: 30px;
