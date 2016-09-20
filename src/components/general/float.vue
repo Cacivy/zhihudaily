@@ -6,8 +6,8 @@ div.float
 	div.gohome(v-if="$route.path!=='/'",title="返回主页",v-link="{ path: '/'}")
 		div.arrow
 		div.stick
-	listshow(:list="topics",path="topic",title="主题日报",:index="0")
-	listshow(:list="sections",path="section",title="栏目总览",:index="1")
+	//- listshow(:list="topics",path="topic",title="主题日报",:index="0")
+	//- listshow(:list="sections",path="section",title="栏目总览",:index="1")
 
 </template>
 <script>
