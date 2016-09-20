@@ -1,7 +1,9 @@
 <template lang='jade'>
 	div.topic
 		ul
-			li(v-for="item in list", v-link="{ path: `/${type}/`+ item.id }", :title="item.name", @click="link(item.id)") {{ item.name }}
+			li(v-for="item in list", v-link="{ path: `/${type}/`+ item.id }", :title="item.name", @click="link(item.id)") 
+				img(v-lazy="item.thumbnail | zhihuimg", width="40", height ="40")
+				{{ item.name }}
 </template>
 <script>
 	export default {
@@ -16,15 +18,16 @@
 </script>
 <style lang="scss" scoped>
 $color-bg: #fff;
-$color-text: #000;
+$color-text: #AAA;
 	.topic {
 		position: absolute;
 		right: 0px;
-		top: 65px;
+		top: 80px;
 		background: $color-bg;
 		color: $color-text;
 		z-index: 1001;
 		font-size: 16px;
+		padding: 2px;
 
 		ul {
 			margin: 0;
@@ -36,7 +39,6 @@ $color-text: #000;
 				// height: 60px;
 				// width: 70px;
 				cursor: pointer;
-				// overflow: hidden;
 
 				&:hover {
 					background: #eee;

@@ -6,12 +6,6 @@ export default function(router) {
 		'/': {
 			component: NewsList
 		},
-		// '/list': {
-		// 	component: NewsList
-		// },
-	    // '/new/:id': {
-	    //     component: NewDetail
-	    // }
 	    '/new/:id': {
 	    	component:function (resolve) {
 	    		require(['./components/NewDetail'], resolve)

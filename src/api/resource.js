@@ -15,6 +15,10 @@ Vue.http.interceptors.push((request, next)  => {
     // continue to next interceptor
     next((response) => {
         Loading(store, false)
+        if (!response.ok) {
+            window.location.href = '/'
+            console.error(response)
+        }
     })
 })
 
