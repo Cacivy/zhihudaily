@@ -1,5 +1,7 @@
 import NewsList from './components/NewsList'
-// import NewDetail from './components/NewDetail'
+import NewDetail from './components/NewDetail'
+import TopicList from './components/TopicList'
+import SectionList from './components/SectionList'
 
 export default function(router) {
 	router.map({
@@ -7,19 +9,13 @@ export default function(router) {
 			component: NewsList
 		},
 	    '/new/:id': {
-	    	component:function (resolve) {
-	    		require(['./components/NewDetail'], resolve)
-	    	}
+	    	component: NewDetail
 	    },
 	    '/topic/:id': {
-	    	component:function (resolve) {
-	    		require(['./components/TopicList'], resolve)
-	    	}
+	    	component: TopicList
 	    },
 	    '/section/:id': {
-	    	component:function (resolve) {
-	    		require(['./components/SectionList'], resolve)
-	    	}
+	    	component: SectionList
 	    }
 	})
 }
