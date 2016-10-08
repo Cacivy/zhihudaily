@@ -3,29 +3,26 @@ div.float
 	div.gotop#gotop(title="返回顶部")
 		div.arrow
 		div.stick
-	div.gohome(v-if="$route.path!=='/'",title="返回主页",v-link="{ path: '/'}")
-		div.arrow
-		div.stick
+	router-link(to="/")
+		div.gohome(v-if="$route.path!=='/'",title="返回主页")
+			div.arrow
+			div.stick
 	//- listshow(:list="topics",path="topic",title="主题日报",:index="0")
 	//- listshow(:list="sections",path="section",title="栏目总览",:index="1")
-
 </template>
 <script>
 import backTop from '../../utils/backtop'
 import listshow from './listshow'
+import { mapGetters } from 'vuex'
 export default {
-	ready() {
-		backTop('gotop');//返回顶部调用
-	},
 	components: { listshow },
-	vuex: {
-	  getters: {
-	    topics: state => state.topics,
-	    sections: state => state.sections
-	  }
+	computed: {
+		...mapGetters(['topics', 'sections'])
 	},
-	methods: {
-
+	mounted() {
+	  this.$nextTick(() => {
+	  	backTop('gotop');//返回顶部调用
+	  })
 	}
 }
 </script>

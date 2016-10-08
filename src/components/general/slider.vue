@@ -1,39 +1,35 @@
 <template lang="jade">
 div.swiper-container
 	div.swiper-wrapper
-		div.swiper-slide(v-for="(index,item) in list", v-link="{ path: item.url}")
-			img(v-if="index>1",:src="item.image | zhihuimg")
-			img(v-else,:src="item.image | zhihuimg")
-			p() {{item.title}}
+		div.swiper-slide(v-for="(item, index) in list")
+			router-link(:to="item.url")
+				img(:src="zhihuimg(item.image)")
+				p() {{item.title}}
 	div.swiper-pagination
 </template>
-
 <script>
 import '../../../node_modules/swiper/dist/css/swiper.min.css'
 import Swiper from 'swiper'
+import {zhihuimg} from '../../utils/filter'
 export default {
 	props: {
-		list: []
+		list: Array
 	},
-	data() {
-		return {
-			
-		}
-	},
-	computed: {
-
-	},
-	ready() {
-		var mySwiper = new Swiper ('.swiper-container', {
+	mounted() {
+	  this.$nextTick(() => {
+	  	var mySwiper = new Swiper('.swiper-container', {
 		  direction: 'horizontal',//vertical
 		  loop: true,
 		  autoplay: 2000,
 		  pagination: '.swiper-pagination',
 		})
+	  })
+	},
+	methods:{
+		zhihuimg
 	}
 }
 </script>
-	
 <style lang="scss" scope>
 .swiper-container {
     max-width: 640px;
@@ -55,5 +51,4 @@ export default {
 		cursor: pointer;
 	}
 }
-
 </style>

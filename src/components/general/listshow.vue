@@ -1,4 +1,5 @@
-<template lang='jade'>
+<template lang="jade">
+div
 	div.gotopics(:title="title",@click="toggle()")
 		div.container
 			hr
@@ -6,7 +7,7 @@
 			hr
 	ul.topics.animated
 		li(v-for="item in list")
-			a(v-link="{ path: `/${path}/`+ item.id }",@click="toggle(0)",:title="item.name") {{ item.name }}
+			rout-link(tag="a", :to="`/${path}/${item.id}`",@click="toggle(0)",:title="item.name") {{ item.name }}
 			dl
 				dt
 					img(v-lazy="item.thumbnail | zhihuimg")

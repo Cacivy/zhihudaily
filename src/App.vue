@@ -7,17 +7,21 @@
  </template>
 
 <script>
-    import store from './vuex/store'
     import float from 'components/general/float'
     import load from 'components/general/loading'
     import vHeader from 'components/general/header'
-
+    import { mapGetters } from 'vuex'
+    
     export default {
-        store,
         vuex: {
             getters: {
                 loading: state => state.loading
             }
+        },
+        computed: {
+          ...mapGetters([
+            'loading'
+          ])
         },
         components: {
             float,
