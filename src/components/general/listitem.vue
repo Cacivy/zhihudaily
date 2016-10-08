@@ -1,5 +1,5 @@
 <template lang="jade">
-router-link(:to="'new/' + item.id")
+router-link(:to="'/new/' + item.id")
 	div.new
 		img(v-if="item.images",v-lazy="zhihuimg(item.images[0])")
 		em(v-if="item.multipic") 多图
