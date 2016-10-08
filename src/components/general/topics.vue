@@ -1,18 +1,20 @@
-<template lang='jade'>
-	div.topic
-		ul
-			li(v-for="item in list", v-link="{ path: `/${type}/`+ item.id }", :title="item.name", @click="link(item.id)") 
-				img(v-lazy="item.thumbnail | zhihuimg", width="40", height ="40")
-				{{ item.name }}
+<template lang="jade">
+div.topic
+	ul
+		li(v-for="item in list", :title="item.name", @click="link(item.id)")
+			img(v-lazy="zhihuimg(item.thumbnail)", width="40", height ="40")
+			{{ item.name }}
 </template>
 <script>
+	import {zhihuimg} from '../../utils/filter'
 	export default {
 		props: ['list', 'type'],
 		methods: {
 			link(id) {
-				this.$router.go({path: `/${this.type}/`+ id});
-				this.type = '';
-			}
+				this.$router.push(`/${this.type}/${id}`);
+				this.$parent.type = '';
+			},
+			zhihuimg
 		}
 	}
 </script>

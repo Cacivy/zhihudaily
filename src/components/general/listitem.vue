@@ -1,18 +1,17 @@
 <template lang="jade">
-div.new(v-link="{ path: '/new/'+ new.id }")
-	img(v-if="new.images && new.images.length",v-lazy="new.images[0] | zhihuimg")
-	em(v-if="new.multipic") 多图
-	em(v-if="new.display_date") {{new.display_date}}
-	p {{ new.title }}
+router-link(:to="'new/' + item.id")
+	div.new
+		img(v-if="item.images",v-lazy="zhihuimg(item.images[0])")
+		em(v-if="item.multipic") 多图
+		em(v-if="item.display_date") {{item.display_date}}
+		p {{ item.title }}
 </template>
-
 <script>
+	import {zhihuimg} from '../../utils/filter'
 	export default {
-		props: {
-			new: {
-				type: Object,
-				required: true
-			}
+		props: { item: Object },
+		methods:{
+			zhihuimg
 		}
 	}
 </script>

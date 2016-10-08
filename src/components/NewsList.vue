@@ -1,21 +1,21 @@
 <template lang="jade">
   div
-    div.news(v-for="(index,item) in showlist")
+    div.news(v-for="(item, index) in showlist")
       h3(v-if="index") {{item.date | moment}}
       //- 顶部图片
       slider(v-if="!index",:list="imglist")
       //- 列表子组件
-      listitem(v-for="new in item.stories",track-by="id",:new="new")
+      listitem(v-for="newItem in item.stories",track-by="id",:item="newItem")
     //- 加载更多
     more(:show="news.length",:loading="loading",:fun="getLastNews")
  </template>
 
 <script>
 import api from '../api/index'
-import { getNews, getTopics, ADD_NEWSCounter, getSections, addIndex } from '../vuex/action'
 import listitem from './general/listitem'
 import slider from './general/slider'
 import more from './general/more'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   components: { listitem, slider, more },
@@ -24,42 +24,23 @@ export default {
       loading: false
     }
   },
-  vuex: {
-    getters: {
-      news: state => state.news,
-      topics: state => state.topics,
-      sections: state => state.sections,
-      index: state => state.index
-    },
-    actions: {
-      getNews, getTopics, ADD_NEWSCounter, getSections, addIndex
-    }
-  },
-  ready() {
-    if(!this.news.length) {
+  mounted() {
+    this.$nextTick(() => {
       this.getNews()
-    } else {
-      // setTimeout(() => {
-        this.getNews()
-      // }, 1000); 
-    }
-    
-    //数据缓存
-    if(!this.topics.length){
-      this.getTopics()
-    }
-    if(!this.sections.length){
-      this.getSections()
-    }
-  },
-  route: {
-    data(transition) {
       
-    },
-    // 這邊就是等待數據取得後才渲染組件關鍵，開啟 true 的話就會等到上面 data 處理完才會開始渲染
-    waitForData: false
+      //数据缓存
+      if(!this.topics.length){
+        this.getTopics()
+      }
+      if(!this.sections.length){
+        this.getSections()
+      }
+    })
   },
   computed: {
+    ...mapGetters([
+      'news', 'topics', 'sections', 'index'
+    ]),
     showlist() {
       let arr = [];
       if (this.news.length) {
@@ -85,6 +66,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+      'getNews', 'getTopics', 'ADD_NEWSCounter', 'getSections', 'addIndex'
+    ]),
     getLastNews() {
       this.loading= true
       this.addIndex();

@@ -1,12 +1,12 @@
-
 import Vue from 'vue'
 import Vuex from 'vuex'
 import plugins from './plugins'
+import * as getters from './getters'
+import * as actions from './action'
 
 Vue.use(Vuex)
 
 var debug= process.env.NODE_ENV !== 'production'
-Vue.config.debug = debug
 
 export const STORAGE_NEWS_KEY = 'news'
 export const STORAGE_TOPICS_KEY = 'topics'
@@ -81,7 +81,9 @@ const mutations = {
 
 export default new Vuex.Store({
   strict: debug,
+  getters,
   state,
+  actions,
   mutations,
   plugins
 })

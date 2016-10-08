@@ -1,33 +1,30 @@
 <template lang='jade'>
 div
 	div.topicimg
-		img(:src="topicPosts.image | zhihuimg")
+		img(:src="zhihuimg(topicPosts.image)")
 		p {{topicPosts.description}}
 	div.news
-		listitem(v-if="topicPosts.stories",v-for="new in topicPosts.stories",track-by="id",:new="new")
+		listitem(v-if="topicPosts.stories",v-for="newItem in topicPosts.stories",track-by="id",:item="newItem")
 	<!-- loading(v-if="!topicPosts.stories") -->
 </template>
 <script>
-import { getTopicPosts } from '../vuex/action'
 import listitem from './general/listitem'
 import loading from './general/loading'
+import { mapGetters, mapActions } from 'vuex'
+import {zhihuimg} from '../utils/filter'
 export default {
 	components: { listitem, loading },
-	vuex: {
-	  getters: {
-	    topicPosts: state => state.topicPosts
-	  },
-	  actions: {
-	    getTopicPosts
-	  }
+	computed: {
+		...mapGetters(['topicPosts'])
 	},
-	route: {
-	  data() {
+	methods: {
+		...mapActions(['getTopicPosts']),
+		zhihuimg
+	},
+	mounted() {
 	  	scroll(0, 0)
 	  	let topicid= this.$route.params.id
 	    this.getTopicPosts(topicid)
-	  },
-	  waitForData: false
 	}
 }
 </script>

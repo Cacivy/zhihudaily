@@ -19,11 +19,12 @@
     "compression": "^1.6.2",
     "normalize.css": "^4.2.0",
     "swiper": "^3.3.1",
-    "vue": "^1.0.21",
-    "vue-lazyload": "^0.7.1",
+    "vue": "^2.0.1",
+    "vue-lazyload": "^0.8.2",
     "vue-resource": "^0.9.3",
-    "vue-router": "^0.7.13",
-    "vuex": "^1.0.0-rc.2"
+    "vue-router": "^2.0.0",
+    "vuex": "^2.0.0",
+    "vuex-router-sync": "^3.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -65,9 +66,8 @@
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.2.0",
     "vue-html-loader": "^1.0.0",
-    "vue-loader": "^8.3.0",
+    "vue-loader": "^9.5.1",
     "vue-style-loader": "^1.0.0",
-    "vuex-router-sync": "^2.0.2",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",
