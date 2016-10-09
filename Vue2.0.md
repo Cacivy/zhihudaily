@@ -1,4 +1,4 @@
-vue 2.0
+# Migration to vue 2.0
 
 需要升级的包列表
 
