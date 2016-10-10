@@ -1,4 +1,4 @@
-import { NewsResource,NewsIdResource,NewsDateResource, NewsInfoResource, TopicsResource,TopicsIdResource, SectionsResource, SectionIdResource } from './resource'
+import { NewsResource,NewsIdResource,NewsDateResource, NewsInfoResource, TopicsResource,TopicsIdResource, SectionsResource, SectionIdResource, LongCommentsResource, ShortCommentsResource } from './resource'
 
 export default {
 	getNews() {
@@ -25,4 +25,10 @@ export default {
 	getSectionsById(sectionid) {
 		return SectionIdResource.get({sectionid: sectionid})
 	},
+	getLongComments(id) {
+		return LongCommentsResource.get({id: id})
+	},
+	getShortComments(id) {
+		return ShortCommentsResource.get({id: id})
+	}
 }

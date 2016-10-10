@@ -5,7 +5,7 @@
       //- 顶部图片
       slider(v-if="!index",:list="imglist")
       //- 列表子组件
-      listitem(v-for="newItem in item.stories",track-by="id",:item="newItem")
+      listitem(v-for="newItem in item.stories",key="id",:item="newItem")
     //- 加载更多
     more(:show="news.length",:loading="loading",:fun="getLastNews")
  </template>
