@@ -20,7 +20,7 @@ npm i vuex-loader@9.5.1 --save-dev
 
 ​	官方文档已经很详细了
   
-  升级工具[vue-migration-helper]https://github.com/vuejs/vue-migration-helper
+  升级工具[vue-migration-helper](https://github.com/vuejs/vue-migration-helper)
   
 
 #### ready
