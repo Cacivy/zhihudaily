@@ -32,6 +32,8 @@ var apiZhihu= {
     topicbyid: '/api/4/theme{/topicid}',
     sections: '/api/3/sections',
     sectionbyid: '/api/3/section{/sectionid}',
+    longcomments: '/api/4/story{/id}/long-comments',
+    shortcomments: '/api/4/story{/id}/short-comments'
 }
 
 export const NewsResource = Vue.resource(API_ROOT.concat( apiZhihu.news ))
@@ -42,3 +44,5 @@ export const TopicsResource = Vue.resource(API_ROOT.concat( apiZhihu.topics ))
 export const TopicsIdResource = Vue.resource(API_ROOT.concat( apiZhihu.topicbyid ))
 export const SectionsResource = Vue.resource(API_ROOT.concat( apiZhihu.sections ))
 export const SectionIdResource = Vue.resource(API_ROOT.concat( apiZhihu.sectionbyid ))
+export const LongCommentsResource = Vue.resource(API_ROOT.concat( apiZhihu.longcomments ))
+export const ShortCommentsResource = Vue.resource(API_ROOT.concat( apiZhihu.shortcomments ))

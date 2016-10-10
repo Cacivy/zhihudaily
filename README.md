@@ -27,7 +27,9 @@
 - [x] 栏目总览及列表
 - [x] 查看赞
 - [x] v-lazy
-- [ ] 查看评论
+- [x] 查看评论
+- [x] 迁移至[vue2.0](https://github.com/Cacivy/zhihudaily/blob/master/Vue2.0.md)
+
 
 ### 目录
 
