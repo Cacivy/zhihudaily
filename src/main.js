@@ -23,6 +23,9 @@ Vue.use(lazyload, {
 Vue.filter('moment', function(value) {
     return moment(value)
 })
+Vue.filter('commentDate', function(value) {
+    return new Date(value * 1000).toLocaleString()
+})
 // filter(Vue)
 // router
 const router = new VueRouter({
