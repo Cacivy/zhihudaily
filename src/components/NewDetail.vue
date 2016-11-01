@@ -71,9 +71,9 @@ div
       zhihuimg,
       zhihulink,
       comment() {
-        let count = parseInt(this.post.comments)
+        // let count = parseInt(this.post.comments)
         this.showComments = !this.showComments
-        if (count && !this.comments.length){
+        if (!this.comments.length){
           let id= this.$route.params.id
           api.getLongComments(id).then(res => {
             return res.json()
@@ -88,13 +88,15 @@ div
         }
       }
     },
-    mounted() {
+    beforeRouteEnter(to, from, next) {
+      next((vm) => {
         scroll(0, 0)
-        let id= this.$route.params.id
-        this.comment()
-        if(!this.post.body){
-          this.getPost(id)
+        let id= vm.$route.params.id
+        if(!vm.post.body){
+          vm.getPost(id)
         }
+        vm.comment()
+      })
     }
   }
 </script>
@@ -108,7 +110,9 @@ div
     .comment {
       border-bottom: 2px solid #eee;
       img {
-        border-radius: 5px;
+        width: 48px;
+        height: 48px;
+        border-radius: 100%;
         margin: 0 10px;
         float: left;
       }
