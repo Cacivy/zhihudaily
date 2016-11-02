@@ -1,6 +1,6 @@
 # Migration to vue 2.0
 
-需要升级的包列表
+> 需要升级的包列表
 
 ```bash
 npm i vue@2.0.1 --save
@@ -9,6 +9,7 @@ npm i vuex@2.0.0 --save
 npm i vuex-router-sync@3.0.0 --save
 npm i vuex-loader@9.5.1 --save-dev
 ```
+
 
 > 下面概括一些比较常用语法的修改
 
@@ -19,6 +20,9 @@ npm i vuex-loader@9.5.1 --save-dev
 ​	[Migration from Vue 1.x](http://vuejs.org/guide/migration.html)
 
 ​	官方文档已经很详细了
+
+  官方升级工具[vue-migration-helper](https://github.com/vuejs/vue-migration-helper)
+
 
 #### ready
 
@@ -106,3 +110,6 @@ import { mapGetters, mapActions } from 'vuex'
    }
 ```
 
+> 附上本项目升级的commit
+
+  [Migration to 2.0](https://github.com/Cacivy/zhihudaily/commit/910a4999f5162ed53d5a71c60b9838d7b9fddc72)

@@ -45,7 +45,7 @@ export const getSections = ({commit}) => {
 	})
 }
 //获取文章
-export const getPost = ({commit, state}, id) => {
+export const getPost = ({commit, state}, id, fun) => {
 	let post= state.posts.find(p=>p.id == id);
 	if(!post){
 		api.getNewsById(id).then(res => {
@@ -62,6 +62,9 @@ export const getPost = ({commit, state}, id) => {
 			    	}
 			    }
 			    commit('ADD_POSTS', post)
+				if (typeof fun === 'function') {
+					fun()
+				}
 			}
 		})
 	}
