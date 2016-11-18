@@ -43,7 +43,7 @@ div.left
 			border: 0;
 			cursor: pointer;
 			background: #eff6fa;
-			font-size: 12px;
+			font-size: 1.2rem;
 			text-align: center;
 			position: relative;
 			// padding-top: 18px;

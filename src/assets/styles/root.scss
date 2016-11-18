@@ -1,6 +1,6 @@
 @import url(../../../node_modules/normalize.css/normalize.css);
 @import url(zhihu.css);
-@import url(reset.css);
+@import url(reset.scss);
 @import url(animate.scss);
 
 
@@ -11,19 +11,28 @@ $color-blue: #008BED;
 $color-gray: #7f8c8d;
 $color-light: #F9F9F9;
 
+html {
+	font-size: 62.5%;
+}
+
 body {
 	background: $color-bg;
 	//background-image: url(/static/gray.jpg);
 	// background-repeat: repeat;
-	transtion: all 1s;
-	font-size: 14px;
+	transition: all 1s;
+	font-size: 1.4rem;
 	font-family: "Lucida Grande","Microsoft YaHei",sans-serif
 }
 
+/*@media screen and (max-width: 640px){
+	body {
+		max-width: 640px;
+	}
+}*/
 
 .app {
 	min-height: 100%;
-	width: 640px;
+	max-width: 640px;
 	// min-width: 500px;
 	margin: 0 auto;
 	padding-bottom: 10px;
@@ -39,7 +48,7 @@ body {
 
 		h1 {
 			color: $color-blue;
-			font-size: 25px;
+			font-size: 2.5rem;
 
 			a {
 				cursor: pointer;
@@ -58,7 +67,7 @@ body {
 			}
 
 			span {
-				font-size: 16px;
+				font-size: 1.6rem;
 				float: right;
 				cursor: pointer;
 
@@ -72,7 +81,7 @@ body {
 	.news {
 		h3 {
 			text-align: center;
-			font-size: 18px;
+			font-size: 1.8rem;
 			color: $color-gray;
 		}
 
@@ -94,7 +103,7 @@ body {
 				padding-left: 20px;
 				display: inline-block;
 				vertical-align: top;
-				font-size: 16px;
+				font-size: 1.6rem;
 				width: 400px;
 				// min-width: 300px;
 			}

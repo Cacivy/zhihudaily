@@ -28,7 +28,7 @@ $color-text: #AAA;
 		background: $color-bg;
 		color: $color-text;
 		z-index: 1001;
-		font-size: 16px;
+		font-size: 1.6rem;
 		padding: 2px;
 
 		ul {
