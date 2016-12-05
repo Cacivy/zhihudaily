@@ -15,6 +15,10 @@ http.createServer(function(req, response){
  var arg = url.parse(req.url).query;
  var str = qs.parse(arg);
 
+if (!str.host || !str.url) {
+  return;
+}
+
  var opt = {
   host: str.host,
   port: '80',
@@ -25,33 +29,21 @@ http.createServer(function(req, response){
   }
 }
 
-var req = http.request(`http://${str.host}${str.url}`, function(res){
+http.request(opt, function(res) {
   res.setEncoding('utf8');
   var body=''
   res.on('data',function(d){
     body += d
   }).on('end', function(){
+    console.log(opt)
+    console.log(res.headers)
   console.log(body)
+  console.log('------------------------------')
 
+  body.replace(/http\w{0,1}:\/\/pic/g, "https://images.weserv.nl/?url=pic")
   response.write(body)
   response.end()
-})
-
-// http.request(opt, function(res) {
-//   res.setEncoding('utf8');
-//   var body=''
-//   res.on('data',function(d){
-//     body += d
-//   }).on('end', function(){
-//     console.log(opt)
-//     console.log(res.headers)
-//   console.log(body)
-//   console.log('------------------------------')
-
-//   body.replace(/http\w{0,1}:\/\/pic/g, "https://images.weserv.nl/?url=pic")
-//   response.write(body)
-//   response.end()
-// });
+});
 
 }).on('error', function(e) {
   console.log("Got error: " + e.message);
