@@ -20,7 +20,7 @@ http.createServer(function(req, response){
   method:pathname.substring(1),
   path: str.url,
   headers:{
-
+    Host: 'news-at.zhihu.com'
   }
 }
 
