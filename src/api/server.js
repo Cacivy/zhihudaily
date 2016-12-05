@@ -29,7 +29,7 @@ if (!str.host || !str.url) {
   }
 }
 
-http.request(opt, function(res) {
+var req = http.request(opt, function(res) {
   res.setEncoding('utf8');
   var body=''
   res.on('data',function(d){
