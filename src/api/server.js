@@ -20,14 +20,14 @@ http.createServer(function(req, response){
   method:pathname.substring(1),
   path: str.url,
   headers:{
-    Host: 'news-at.zhihu.com'
+
   }
 }
 
-var body=''
+
 var req = http.request(opt, function(res) {
   res.setEncoding('utf8');
-
+  var body=''
   res.on('data',function(d){
     body += d
   }).on('end', function(){
