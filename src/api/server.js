@@ -25,7 +25,12 @@ if (!str.host || !str.url) {
   method:pathname.substring(1),
   path: str.url,
   headers:{
-
+      "Host": "news-at.zhihu.com",
+			"User-Agent"	:"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.157 Safari/537.36",
+			"Accept"		:"*/*",
+			"Referer"		:"http://news-at.zhihu.com/",
+			"Content-Type"	:"application/x-www-form-urlencoded",
+			"Connection"	:"close"
   }
 }
 
