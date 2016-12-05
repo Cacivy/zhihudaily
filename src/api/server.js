@@ -13,7 +13,7 @@ http.createServer(function(req, response){
  var pathname = url.parse(req.url).pathname.toUpperCase();
  var arg = url.parse(req.url).query;
  var str = qs.parse(arg);
- 
+
  var opt = {
   host: str.host,
   port:'',
@@ -26,14 +26,14 @@ http.createServer(function(req, response){
 
 var body=''
 var req = http.request(opt, function(res) {
-  res.setEncoding('utf8'); 
-  
+  res.setEncoding('utf8');
+
   res.on('data',function(d){
     body += d
   }).on('end', function(){
     console.log(opt)
     console.log(res.headers)
-  // console.log(body)
+  console.log(body)
   console.log('------------------------------')
 
   body.replace(/http\w{0,1}:\/\/pic/g, "https://images.weserv.nl/?url=pic")
