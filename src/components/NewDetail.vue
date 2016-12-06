@@ -6,14 +6,14 @@ div
     //- div.view-more(v-if="post.id")
     //-   a.cursor(href="javascript:void(0)", @click="comment") {{commentText}}
     //-     span.dadged ({{post.comments}})
-    div.comments(v-show="showComments")
+    div.comments(v-show="showComments", v-show="post.body")
       div.comment(v-for="item in comments")
         img(:src="zhihuimg(item.avatar)")
         div.content
           span.author {{item.author}}
           span.time {{item.time | commentDate}}
           div {{item.content}}
-  left(v-if="post.body",:popularity="post.popularity")
+  left(v-if="post.body", :popularity="post.popularity")
 </template>
 
 <script>
@@ -123,7 +123,7 @@ div
           font-weight: 700;
         }
         .time {
-          font-size: 12px;
+          font-size: 1.6rem;
           margin-left: 10px;
         }
       }
