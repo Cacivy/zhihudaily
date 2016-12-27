@@ -3,6 +3,11 @@ div
   div.post
     img.postimage(:src="zhihuimg(post.image)")
     div(v-html="zhihulink(zhihuimg(post.body))")
+    div.masker(v-show="!post.body")
+      div.masker4
+      div.masker3
+      div.masker2
+      div.masker1
     //- div.view-more(v-if="post.id")
     //-   a.cursor(href="javascript:void(0)", @click="comment") {{commentText}}
     //-     span.dadged ({{post.comments}})
@@ -126,6 +131,23 @@ div
           font-size: 1.6rem;
           margin-left: 10px;
         }
+      }
+    }
+  }
+
+  .masker {
+    div {
+      width: 80%;
+      height: 20px;
+      border-color: hsla(0,0%,95%,.1);
+      background-color: hsla(0,0%,95%,.5);
+      outline: none;
+      margin: 10px 20px;
+    }
+
+    @for $i from 4 through 1 {
+      .masker#{$i} {
+        width: 20% * $i;
       }
     }
   }
