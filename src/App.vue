@@ -13,11 +13,6 @@
     import { mapGetters } from 'vuex'
     
     export default {
-        vuex: {
-            getters: {
-                loading: state => state.loading
-            }
-        },
         computed: {
           ...mapGetters([
             'loading'

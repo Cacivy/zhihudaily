@@ -1,7 +1,7 @@
 <template lang="jade">
 div.left
 	div.agree
-		button.up(itle="赞同")
+		button.up(title="赞同")
 			i.icon
 			span.count {{ popularity }}
 			span.sr-only
@@ -70,5 +70,5 @@ div.left
 		}
 	}
 }
-	
+
 </style>
