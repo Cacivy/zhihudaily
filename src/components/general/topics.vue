@@ -34,6 +34,8 @@ $color-text: #AAA;
 		ul {
 			margin: 0;
 			padding: 0;
+      max-height: 600px;
+      overflow-y: auto;
 
 			li {
 				padding: 3px;
