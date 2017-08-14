@@ -8,12 +8,13 @@
     "dev": "node build/dev-server.js",
     "start": "NODE_ENV=producting PORT=8080 npm run dev",
     "build": "node build/build.js",
-    "server": "node src/api/server.js",
+    "server": "node src/proxy.js",
     "prod": "node build/prod-server.js",
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit"
   },
   "dependencies": {
+    "express": "^4.13.3",
     "animate.css": "^3.5.1",
     "babel-runtime": "^6.0.0",
     "compression": "^1.6.2",
@@ -38,7 +39,6 @@
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.23.0",
     "eventsource-polyfill": "^0.9.6",
-    "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.4",
     "function-bind": "^1.0.2",
