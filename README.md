@@ -40,9 +40,9 @@
 ├── config 配置文件
 ├── dist 打包文件夹
 ├── index.html 页面入口
-├── node_modules 
-├── package.json 
-├── src 
+├── node_modules
+├── package.json
+├── src
 	├── App.vue
 	├── api
 	│   ├── api.js 知乎api
@@ -74,7 +74,7 @@
 	│   ├── backtop.js
 	│   └── lazyload.js 已改为v-lazy
 	└── vuex
-	    ├── action.js 
+	    ├── action.js
 	    ├── logger.js
 	    ├── plugins.js
 	    └── store.js
@@ -106,7 +106,7 @@ webpack-server
 npm run dev
 ```
 
-[http://localhost:8080](http://localhost:8080)
+[http://localhost:8081](http://localhost:8081)
 
 ### License
 

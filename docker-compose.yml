@@ -1,0 +1,11 @@
+version: '2.1'
+
+services:
+  zhihudaily:
+    image: zhihudaily
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8081: 8081
+      - 3003: 3003
