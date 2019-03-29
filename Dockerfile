@@ -4,5 +4,5 @@ WORKDIR /usr/src/app/
 COPY package.json dist static ./
 RUN npm install
 COPY . .
-EXPOSE 3003 8081
+EXPOSE 8081
 CMD npm run prod
