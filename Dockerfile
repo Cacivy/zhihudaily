@@ -5,4 +5,4 @@ COPY package.json dist static ./
 RUN npm install
 COPY . .
 EXPOSE 3003 8081
-CMD npm run prod & npm run server
+CMD npm run prod
